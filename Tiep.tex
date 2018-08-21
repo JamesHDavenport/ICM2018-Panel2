@@ -1,0 +1,172 @@
+%\newcommand{\PC}{({\mathcal P})}
+\section{Machine-Assisted Proofs in Group Theory and Representation Theory:
+Pham Huu Tiep\protect\footnote{The author gratefully acknowledges the support of the NSF (grants DMS-1839351 and DMS-1840702). He also thanks 
+Gabriel Navarro and Eamonn O'Brien for helpful comments on the topic of this discussion.}}
+%\\
+%Department of Mathematics,  Rutgers University, Piscataway, NJ 08854, USA\\
+%{\tt tiep@math.rutgers.edu}
+%\end{center}
+
+%\date{Rio de Janeiro, Aug. 7, 2018}
+
+
+
+%\maketitle
+
+Typically, many proofs in mathematics rely on {\it mathematical induction}. In group theory and representation theory,
+this inductive approach often follows a modified strategy, which can be described as follows. Suppose the goal is to prove a 
+certain statement $\PC$ concerning a (finite or algebraic) group $G$. 
+
+\begin{enumerate}[\rm(i)]
+\item Then the first step is to prove a {\it reduction theorem}
+to reduce to the case where $G$ is (very close to be) {\it simple}, using perhaps the
+{\it Classification of Finite Simple Groups}. (One should note that, these reduction theorems usually require one to 
+establish a much stronger condition $({\mathcal P}^*)$ for simple groups than the original condition $\PC$. 
+See \cite{IMN} and \cite{NT} for some recent reduction theorems.)
+
+\item Next, one works out a uniform proof, which handles the simple groups $G$ of {\it large enough} order.
+
+
+\item The {\it induction base} is then to treat all ``small'' simple groups $G$.
+\end{enumerate}
+
+In either strategy, the induction base usually needs a completely different treatment, rather than the uniform case of large groups,
+which often involves the, sometimes massive, use of computer calculations.
+ 
+Let us illustrate this on the example of the proof of the {\it Ore conjecture} \cite{O}:
+
+%discussed by Serre
+\begin{conj}[\textbf{Ore, 1951}]\label{ore}
+Every element $g$ in any finite non-abelian simple group $G$ is a commutator,
+i.e. can be written as $g = xyx^{-1}y^{-1}$ for some $x,y \in G$.
+\end{conj}
+
+Many important but partial results on the conjecture were established by Ore himself, Miller, R. C. Thompson, Neub\"user-Pahlings-Cleuvers, and most notably, Ellers-Gordeev. The conjecture was finally proved in \cite{LBST}:
+
+\begin{thm}[\textbf{Liebeck-O'Brien-Shalev-T, 2010}]
+Conjecture \ref{ore} holds for all finite non-abelian simple groups.
+\end{thm}
+
+Even building on all previous results, the proof of this ``LOST-theorem''
+is still 70-pages long. So how does this proof go? A detailed account of it was given in the 2013 Bourbaki seminar \cite{M}.
+A key ingredient of the proof is the following formula, where $\Irr(G)$ denotes the set of all complex irreducible characters of 
+the finite group $G$:
+
+\begin{lem}[\textbf {Frobenius character sum formula}]\label{frob}
+Given a finite group $G$ and an element $g \in G$, the number of pairs $(x,y) \in G \times G$ such 
+that $g = xyx^{-1}y^{-1}$ is 
+$$|G| \cdot \sum_{\chi \in \Irr(G)}\frac{\chi(g)}{\chi(1)}.$$
+\end{lem}
+
+So in order to show that a given element $g \in G$ is a commutator, one just needs to show that 
+$\sum_{\chi \in \Irr(G)}\chi(g)/\chi(1) \neq 0$. Now, let $G$ be one of the groups in the induction base for
+the proof \cite{LBST} of the Ore conjecture. 
+
+\begin{enumerate}[\rm(a)]
+\item In many cases, the character table of $G$ is well known, either 
+published and/or publicly available, in which case we can just use Lemma \ref{frob}. 
+
+\item In the remaining case, where the character table of $G$ is not available, but if $|G|$ is not too large,
+then we construct the character table of $G$ and then proceed as before. To construct the character table of
+such a group $G$, one starts with a ``nice'' presentation or representation of $G$. Then one can try to use various operations with
+group characters to produce enough characters of $G$ to generate the full group $\ZZ\Irr(G)$ of complex characters of 
+$G$. With respect to the usual inner product
+$$[\alpha,\beta] = \frac{1}{|G|}\sum_{x \in G}\alpha(x)\overline{\beta(x)},$$
+$\ZZ\Irr(G)$ is a Euclidean lattice, whose minimal vectors are (up to sign) precisely the {\it irreducible} characters of $G$ that we are after.  
+So one can try to follow, say the {\it LLL-algorithm}, to find these irreducible characters. In practice (and in \cite{LBST}), one can use 
+Unger's algorithm \cite{U}, implemented in {\sf MAGMA} \cite{Magma}.
+
+\item But some of the groups $G$ in the induction base of \cite{LBST}, like ${\mathrm {Sp}}_{10}(\FF_3)$, $\Omega_{11}(\FF_3)$, or $\mathrm{U}_6(\FF_7)$, are still too big for the computation in (b). For these too-big groups $G$, we implement another 
+strategy. Namely, for any given $g \in G$, we  run a randomized search for $y \in G$ such that $y$ and $gy$ are 
+conjugate. (In fact, one needs to do it only for one representative of each conjugacy class of $G$. So, for the largest 
+sporadic simple group, the {\it Monster}, of order about $8 \cdot 10^{53}$, one needs to work with only $194$ such representatives.)
+Once such a $y$ can be found, then we have $gy = xyx^{-1}$ for some $x \in G$, i.e. $g = [x,y]$, which is what we wanted to show! 
+\end{enumerate}
+
+The first obvious question that arises is: How {\it long} was this computation? All in all, it took us about 150 weeks of CPU time of a 2.3GHz computer with 250GB of RAM to complete (by April 2008) all the computations needed for the proof in \cite{LBST} of the Ore conjecture. (Certainly, this amount of CPU time could be significantly reduced with the better computational algorithms available now, ten years later.)
+
+The second, and more important, question is: How {\it reliable} is this computation? In the cases of (a) and (b) where we used or computed the character table of $G$,  the relevant character tables have been subjected to various checks which attest to their accuracy.  The tables are also publicly available in character table libraries, so they can be checked by others and used for independent verification of the conjecture. 
+Next, in the larger cases of (c), the randomized computation was used to find $y$ that $gy$ and $y$ {\it should} be $G$-conjugate for
+a given $g$, and then one checks directly (using the given presentation or representation of $G$) that $gy$ and $y$ are {\it indeed}
+$G$-conjugate. One should notice that this is quite different in nature to other machine-assisted proofs which reduce an elaborate proof to many cases -- each is then decided by machine, often reporting ``yes'' or ``no'' to the existence of some object.
+
+\bigskip
+In group theory and representation theory, as in many other areas of mathematics, perhaps even more important than 
+the machine-assisted proofs are
+
+\begin{itemize}
+\item {\it machine-assisted discovered theorems}, and  
+\item {\it machine-assisted discovered counterexamples}.
+\end{itemize}
+Let us mention a couple of examples of these two kinds.
+
+\begin{itemize}
+\item The {\it Galois-McKay conjecture} 
+was formulated by Navarro in \cite{N} after many, many days of computing in {\sf GAP} \cite{GAP}.
+
+\item Also after some long experimental computations with the symmetric groups $\SSS_n$, $n \leq 50$, Isaacs, Navarro, and I found a natural 
+{\it McKay correspondence} (for the prime 2), which should hold for all symmetric groups, and which was subsequently 
+proved in our joint paper with Olsson \cite{INOT}.
+
+\item An old conjecture in Character Theory states that if a finite group $G$ is rational (that is, all $\chi \in \Irr(G)$ are 
+rational-valued), then so are the Sylow $2$-subgroups of $G$. However, after some long (but directed!) search using 
+the ``SmallGroups'' databases contained in the computer packages \cite{GAP} and \cite{Magma}, 
+Isaacs and Navarro have been able to find two counterexamples of order $2^9 \cdot 3$ to this conjecture, see \cite{IN}. 
+\end{itemize}
+
+\begin{thebibliography}{ABCD}
+
+\bibitem[BCP]{Magma} W. Bosma, J. Cannon and 
+ C. Playoust,
+The {\sc Magma} algebra system I: The user language,
+\emph{J.\ Symbolic Comput.} {\bf 24} (1997), 235--265.   
+
+\bibitem[GAP]{GAP}
+The GAP group, `{\it {\sf GAP} - groups, algorithms, and
+programming}', Version 4.4, 
+2004,
+{\sf http://www.gap-system.org}.
+
+\bibitem[IMN]{IMN}
+  I. M. Isaacs, G. Malle, and G. Navarro, A reduction theorem for the
+McKay conjecture, {\it Invent. Math.} {\bf 170} (2007), 33--101.
+
+\bibitem[IN]{IN}
+  I. M. Isaacs and G. Navarro, Sylow $2$-subgroups of rational solvable groups, {\it Math. Z.} {\bf 272} (2012), 937--945.
+  
+\bibitem[INOT]{INOT}
+  I. M. Isaacs, G. Navarro, J. B. Olsson, and Pham Huu Tiep, Character restrictions and multiplicities in symmetric groups, 
+{\it J. Algebra} {\bf 478} (2017), 271--282.
+
+\bibitem[LBST]{LBST}
+  M. W. Liebeck, E. O'Brien, A. Shalev, and Pham Huu Tiep,
+The Ore conjecture, {\it J. Eur. Math. Soc.} {\bf 12} (2010), 939--1008.
+
+\bibitem[M]{M}
+  G. Malle, The proof of Ore's conjecture [after Ellers-Gordeev and 
+Liebeck-O'Brien-Shalev-Tiep], S\'eminaire  Bourbaki, March 23, 2013.
+
+\bibitem[N]{N}
+  G. Navarro, The McKay conjecture
+and Galois automorphisms, {\it Annals of Math.} {\bf 160} (2004), 1129--1140.
+
+\bibitem[NT]{NT}
+  G. Navarro and Pham Huu Tiep, A reduction theorem for the
+Alperin weight conjecture, {\it Invent. Math.} {\bf 184} (2011), 529--565.
+
+\bibitem[O]{O} O. Ore, Some remarks on commutators, 
+{\it Proc. Amer. Math. Soc.} {\bf 2} (1951), 307--314. 
+
+\bibitem[U]{U} W.R. Unger,
+Computing the character table of a finite group,
+{\it J.\ Symbolic Comput.}  {\bf 41}  (2006),  847--862.
+
+\end{thebibliography}
+%\end{document}
+
+
+
+
+
+
+
