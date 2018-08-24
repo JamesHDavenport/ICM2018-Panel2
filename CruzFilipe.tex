@@ -1,53 +1,63 @@
-The awareness of the majority of mathematicians towards the use of computers in
-proofs started in 1976 with the announcement of the proof of the Four-Color
-Theorem~\cite{AppelHaken1976a}. However, there are earlier examples of proofs
-that were partially or completely done by a machine; an interesting example is
-Floyd and Knuth's proof of optimality of the 16-comparator sorting network on 7
-inputs (Theorem 5 in~\cite{FloydKnuth1973}), which starts:
+The awareness of the mathematical community towards the use of computers in
+proofs of mathematical results started in 1976 with the announcement of the
+proof of the Four-Color Theorem~\cite{AppelHaken1976a}.
+
+However, there are earlier examples of proofs that were partially or completely
+done by a machine. An interesting example is Floyd and Knuth's proof of
+optimality of the 16-comparator sorting network on 7 inputs (Theorem 5
+in~\cite{FloydKnuth1973}), which starts:
 \begin{quote}
 This theorem was proved by exhaustive enumeration on a CDC G-21 computer at
 Carnegie Institute of Technology in 1966.
 \end{quote}
 
 Optimality of sorting networks is an interesting problem in combinatorics. The
-problem is: what is the length $S(n)$ of the shortest sequence of
-compare-and-swap operations (where each operation sorts two values) that will
-sort all inputs of a given length $n$?
+question we want to answer is: what is the length $S(n)$ of the shortest
+sequence of compare-and-swap operations (i.e., atomic operations consisting of
+sorting a pair of values) that will sort all inputs of a given length $n$?
 Floyd and Knuth's work cited above addresses this problem for $2\leq n\leq 7$.
 Except for the values of $S(4)$ and $S(6)$, which are derived from those of
 $S(3)$ and $S(5)$ by application of a more general theorem, all values are
 derived by exhaustively enumerating the possible sequences of length $S(n)-1$
-and showing that, for each of them, there is an input that they do not sort.
-As the authors note in their conclusion, this method is however ``quite
-unsatisfactory for higher values of $n$'': the number of cases that need to be
-analyzed for establishing $S(7)$ is unmanageable for a human being, and laid at
-the limits of what could be computed in 1966.
+and showing that, for each of them, there is an input of length $n$ that they do
+not sort. As the authors note in their conclusion, this method is however
+``quite unsatisfactory for higher values of $n$'': the number of cases that need
+to be analyzed for establishing $S(7)$ is unmanageable for a human being, and
+lay at the limits of what could be computed in 1966.
 
 \paragraph{Two styles of proving.}
 
 Floyd and Knuth's proof, as well as the proof of the Four-Color Theorem, are
 examples of one family of machine proofs: they establish a property by means of
-an \emph{ad-hoc} computer program that is written explicitly for that task.
-Nowadays, this approach is not very common: verifying the proof demands that
-this program be verified, a task that does not fall under the usual scope of the
-refereeing process. Instead, it is generally considered preferable to use a
-\emph{theorem prover}: a general-purpose program that can construct and/or
-verify proofs in a particular logic.
+an \emph{ad-hoc} computer program that is written for that specific purpose.
+Nowadays, this approach is not very common: verifying such proofs also demands
+that the program be verified, a task that does not fall under the usual scope of
+the peer-reviewing process. Instead, it is generally considered preferable to
+use a \emph{theorem prover}: a general-purpose program that can construct and/or verify proofs in a particular logic.
 
 Trusting a proof produced with the help of a theorem prover also has some
 implications. First, one still needs to trust a computer program -- the theorem
 prover itself. The difference with respect to using \emph{ad-hoc} programs is
-that this is now a program that has been subject to much wider scrutiny, and it
-can be argued that it is as trustworthy as a published mathematical proof that
-has been subject to peer-reviewing. The other point that needs to be checked is
-that the encoding of the mathematical problem in the theorem prover's logic is
-correct: this is generally accepted as part of the peer-reviewing process, as
-these encodings are typically included and discussed in submitted articles.
+that we are now considering a program that has been subject to much wider
+scrutiny, and it can be reasonably argued that the ensuing proof is as
+trustworthy as a published mathematical proof that has been subject to
+peer-reviewing. The other point that needs to be checked is that the encoding of
+the actual mathematical problem in the theorem prover's logic is correct: this
+is generally accepted as part of the peer-reviewing process, as these encodings
+are typically included and discussed in submitted articles. (This aspect is also
+an issue when using \emph{ad-hoc} computer programs in proofs, but in that
+scenario the encodings used tend to be much more direct.)
+
+Theorem provers come in a wide variety of styles and flavors, ranging from very
+general purpose to more specifically tailored for a particular family of
+problems. They use different logics, and are often uncomparable in their
+usefulness. A very encompassing overview of the world of theorem provers can be
+found in~\cite{Wiedijk2006}.
 
 \paragraph{Machine-assisted proofs today.}
 
 Forty years after the announced proof of the Four-Color Theorem,
-machine-assisted proofs are everywhere. Arguably their widest area of
+machine-assisted proofs are everywhere. Arguably, their widest area of
 application is hardware and software verification, of which Floyd and Knuth's
 problem is an example. In an area where we are increasingly dependent on
 computers to perform critical tasks -- from controlling air traffic to
@@ -71,25 +81,28 @@ tends to build upon itself, and researchers often find that the biggest
 challenge in formally verifying an ``interesting'' result lies on the
 unavailability of libraries formalizing the relevant underlying theories.
 Nevertheless, recent formalizations of e.g.~the proof of the Four-Color
-Theorem~\cite{Gonthier2008} and of Kepler's conjecture~\cite{Hales2014a} show
-that this goal is not hopeless. (A recent contribution to this list is a formal
-proof of Floyd and Knuth's results on sorting networks~\cite{lcfEtAl2017a},
-along with the recently established value of $S(9)$~\cite{CodishEtAl2016}.)
+Theorem~\cite{Gonthier2008} and the proof of Kepler's
+conjecture~\cite{Hales2014a} show that this goal is not hopeless. (A recent
+contribution to this list is a formal proof of Floyd and Knuth's results on
+sorting networks~\cite{lcfEtAl2017a}, along with the recently established value
+of $S(9)$~\cite{CodishEtAl2016}.)
 
 A different approach to machine-verified proofs of mathematical results, which
 some may argue is less elegant, capitalizes on the sucess of SAT solvers. A SAT
-solver is a program that tackles the Boolean satisfiability problem (given a
-propositional formula, decide whether it has a satisfying assignment). Although
-this problem is NP-complete, research in efficient techniques for solving it has
-resulted in extremely powerful tools that can solve formulas with millions of
-variables and billions of clauses. To test the limits of these programs, several
-researchers have experimented with encoding open mathematical problems
-(typically from combinatorics) as propositional formulas, which were succesfully
-proven to be unsatisfiable~\cite{HeuleKullmann2017}.
+solver is a program that tackles the Boolean satisfiability problem: given a
+propositional formula, decide whether it has a satisfying assignment. Although
+this problem is NP-complete, years of intensive investiment in researching
+efficient techniques for solving it has resulted in extremely powerful tools
+that can solve formulas with millions of variables and billions of clauses. To
+test the limits of these programs, several researchers have experimented with
+encoding open mathematical problems (typically from combinatorics) as
+propositional formulas, which were then successfully proven to be
+unsatisfiable~\cite{HeuleKullmann2017}.
 
-Until recently, SAT solvers were viewed by some with some skepticism: their
+Until recently, SAT solvers were viewed by some with skepticism: their
 complexity made them impossible to analyze in practice, and in the case a
 formula was claimed to be unsatisfiable no independently verifiable guarantee of
 this fact was provided. The situation changed recently, and the majority of
 today's SAT solvers also output traces that allow independent, formally verified
-systems to check proofs of unsatisfiability of propositional formulas~\cite{lcfEtAl2017b,lcfEtAl2017c}.
+systems to check proofs of unsatisfiability of propositional
+formulas~\cite{lcfEtAl2017b,lcfEtAl2017c}.
