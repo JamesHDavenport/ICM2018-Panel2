@@ -27,6 +27,20 @@
   keywords = {GEOM}
 }
 
+@Article{ BirchSwinnertonDyer1963,
+  title = "{Notes on Elliptic Curves I}",
+  author = {Birch,B.J. and Swinnerton-Dyer,H.P.F.},
+  journal = {J. f\"ur reine und angew. Math.},
+  volume = {212},
+  year = {1963},
+  pages = {7-23},
+  annote = {It remains to discuss the question of error. One can take precautions against machine errors either by running all the calculations twice or by checks included in the program. Moreover machines --- unlike human beings --- are so designed that the errors they make are usually too gross to be overlooked. We are satisfied that there are in our results no undetected errors of this sort. On the other hand, in translating an elaborate scheme of calculation into a machine program one is bound to make mistakes. Most of these are found before the program is used for production runs; they show up because the program grinds to a halt or produces ridiculous results. But a program which is believed to work may still contain logical errors which only have an effect in rare circumstances: and indeed most computers have anomalies which cause them occasionally not to behave in the way that their specifications suggest. In fact, our program for stage (ii) was imperfect in that a very few equivalences were missed by the machine.
+For these reasons we believe that results obtained from a computer should not be automatically trusted. In some cases they can be checked because they have properties which were not essentially used in the course of the calculation and which would be unlikely to survive if an error had been made. But if checks of this sort are not available, results should not be fully trusted until they have been independently reproduced by a different programmer using a different machine.
+used JHD in after-dinner speech at ICMS 2014.},
+  keywords = {NT ELL ALG}
+}
+
+
 @Book{Conwayetal1985,
   title={Atlas of finite simple groups},
   author={Conway,J.H. and Curtis,R.T. and Norton,S.P. and Parker,R.A. and Wilson,R.A.},
@@ -153,7 +167,7 @@ pages={e2}}
 
 @Misc{ Helfgott2013a,
   title = "{Major arcs for Goldbach's theorem}",
-  author = {Helfgott,H.A.},
+    AUTHOR = {Helfgott, Harald Andr\'es},
   year = {2013},
   howpublished = {\url{http://arxiv.org/abs/1305.2897}},
   annote = {The ternary Goldbach conjecture, or three-primes problem, asserts that every odd integer N greater than 5 is the sum of three primes. The present paper proves this conjecture.  Both the ternary Goldbach conjecture and the binary, or strong, Goldbach conjecture had their origin in an exchange of letters between Euler and Goldbach in 1742. We will follow an approach based on the circle method, the large sieve and exponential sums, supplemented by rigorous computations, including a verification of zeros of L-functions due to D. Platt. The improved estimates on exponential sums are proven in a twin paper by the author.
@@ -372,4 +386,311 @@ pages={847--862}}
   volume    = 3600,
   publisher = {Springer},
   year      = 2006,
+}
+@phdthesis{Platt,
+   AUTHOR = {Platt, David},
+    TITLE = {Computing degree $1$ L-functions rigorously},
+   SCHOOL = {Bristol University},
+     YEAR = 2011
+}
+
+@COMMENT { BibTex package created from National Library of Australia Catalogue https://catalogue.nla.gov.au  }
+@Book{ Wilkinson,
+author = { Wilkinson, James Hardy},
+title = { Rounding errors in algebraic processes},
+publisher = { H.M.S.O London },
+year = { 1963 },
+type = { Book },
+language = { English },
+subjects = { Roundoff errors.; Electronic data processing -- Numerical analysis.; Electronic digital computers -- Mathematics. },
+life-dates = { 1963 -  },
+catalogue-url = { https://nla.gov.au/nla.cat-vn4400031 },
+}
+
+@book{Higham,
+ author = {Higham, Nicholas J.},
+ title = {Accuracy and Stability of Numerical Algorithms},
+ year = {2002},
+ isbn = {0898715210},
+ edition = {2nd},
+ publisher = {Society for Industrial and Applied Mathematics},
+ address = {Philadelphia, PA, USA},
+} 
+
+
+@book{moore,
+	author = "Moore, Ramon Edgar",
+	title = "Interval Analysis",
+	publisher = "Prentice Hall",
+	address = "Englewood Cliffs, NJ",
+	year = 1966
+}
+
+@article{Young1931,
+author = {Young, Rosalind Cecily},
+journal = {Mathematische Annalen},
+keywords = {set theory, real functions},
+pages = {260-290},
+title = {The algebra of many-valued quantities},
+url = {http://eudml.org/doc/159462},
+volume = {104},
+year = {1931},
+}
+
+@article{sunaga2009,
+author = "Sunaga, Teruo",
+fjournal = "Japan Journal of Industrial and Applied Mathematics",
+journal = "Japan J. Indust. Appl. Math.",
+number = "2-3",
+pages = "125--143",
+publisher = "Japan Society for Industrial and Applied Mathematics",
+title = "Theory of an interval algebra and its application to numerical analysis {[Reprint of Res. Assoc. Appl. Geom. Mem. 2 (1958), 29--46]}",
+url = "https://projecteuclid.org:443/euclid.jjiam/1317758986",
+volume = "26",
+year = "2009"
+}
+
+
+@techreport{crlibm,
+  title = {{CR-LIBM A library of correctly rounded elementary functions in double-precision}},
+  author = {Daramy-Loirat, Catherine and Defour, David and de Dinechin, Florent and Gallet, Matthieu and Gast, Nicolas and Lauter, Christoph and Muller, Jean-Michel},
+  note = {https://hal-ens-lyon.archives-ouvertes.fr/ensl-01529804},
+  type = {Research Report},
+  institution = {LIP},
+  year = {2006},
+  month = dec,
+  pdf = {https://hal-ens-lyon.archives-ouvertes.fr/ensl-01529804/file/crlibm.pdf},
+  hal_id = {ensl-01529804},
+  hal_version = {v1},
+  keywords = {correct rounding, algorithms, exp, log, pow, exp10, log10}
+}
+
+@article{warmus1956,
+  title={Calculus of approximations},
+  author={Warmus, Mieczyslaw},
+  journal={Bulletin de l’Academie Polonaise de Sciences},
+  volume={4},
+  number={5},
+  pages={253--257},
+  year={1956}
+}
+
+@unpublished{Helfbook,
+    AUTHOR = {Helfgott, Harald Andr\'es},
+     TITLE = "{The ternary Goldbach problem}",
+      NOTE = {Preprint. Available as {\url{https://arxiv.org/abs/1501.05438}}},
+}
+		
+@misc {QEPCAD,
+AUTHOR = {Hong, Hoon and Brown, Christopher W.},
+TITLE = {{QEPCAD} {B} -- {Q}uantifier Elimination by Partial Cylindrical Algebraic Decomposition},
+NOTE = {version 1.62},
+YEAR = {2011},
+MONTH={May},
+URL = {http://www.usna.edu/cs/qepcadweb/B/QEPCAD.html},
+}
+
+@book{opac-b1124307,
+   title = "Algorithms in real algebraic geometry",
+   author = "Basu, Saugata and Pollack, Richard and Roy, Marie-Fran\c{c}oise",
+   series = "Algorithms and computation in mathematics",
+   publisher = "Springer",
+   address = "Berlin, Heidelberg, New York",
+   url = "http://opac.inria.fr/record=b1124307",
+   isbn = "3-540-33098-4",
+   year = 2006
+}
+
+
+@incollection {MR0403962,
+    AUTHOR = {Collins, George E.},
+     TITLE = {Quantifier elimination for real closed fields by cylindrical
+              algebraic decomposition},
+ BOOKTITLE = {Automata theory and formal languages ({S}econd {GI} {C}onf.,
+              {K}aiserslautern, 1975)},
+     PAGES = {134--183. Lecture Notes in Comput. Sci., Vol. 33},
+ PUBLISHER = {Springer, Berlin},
+      YEAR = {1975},
+   MRCLASS = {02H15 (12D15 68A20 02J15)},
+  MRNUMBER = {0403962},
+MRREVIEWER = {Jo Ann Howell},
+}
+
+@article{hales2005proof,
+  title={A proof of the {K}epler conjecture},
+  author={Hales, Thomas C.},
+  journal={Annals of mathematics},
+  pages={1065--1185},
+  year={2005},
+  publisher={JSTOR}
+}
+
+@book{lagarias2011kepler,
+  title={The Kepler Conjecture: The Hales-Ferguson Proof},
+  author={Lagarias, Jeffrey C.},
+  year={2011},
+  publisher={Springer Science \& Business Media}
+}
+
+@inproceedings{hales2017formal,
+  title={A formal proof of the Kepler conjecture},
+  author={Hales, Thomas and Adams, Mark and Bauer, Gertrud and Dang, Tat Dat and Harrison, John and Le Truong, Hoang and Kaliszyk, Cezary and Magron, Victor and McLaughlin, Sean and Nguyen, Tat Thang and others},
+  booktitle={Forum of Mathematics, Pi},
+  volume={5},
+  year={2017},
+  organization={Cambridge University Press}
+}
+
+@article{avigad2007formally,
+  title={A formally verified proof of the prime number theorem},
+  author={Avigad, Jeremy and Donnelly, Kevin and Gray, David and Raff, Paul},
+  journal={ACM Transactions on Computational Logic (TOCL)},
+  volume={9},
+  number={1},
+  pages={2},
+  year={2007},
+  publisher={ACM}
+}
+
+@article{newman1980simple,
+  title={Simple analytic proof of the prime number theorem},
+  author={Newman, Donald J},
+  journal={The American Mathematical Monthly},
+  volume={87},
+  number={9},
+  pages={693--696},
+  year={1980},
+  publisher={Taylor \& Francis}
+}
+
+@ARTICLE{harrison-pnt,
+        author          = "John Harrison",
+        title           = "Formalizing an analytic proof of the {P}rime
+                           {N}umber {T}heorem (Dedicated to {M}ike {G}ordon on
+                           the occasion of his 60th birthday)",
+        journal         = "Journal of Automated Reasoning",
+        year            = 2009,
+        volume          = 43,
+        pages           = "243--261"}
+
+@inproceedings{harrison2005hol,
+  title="{A HOL theory of Euclidean space}",
+  author={Harrison, John},
+  booktitle={International Conference on Theorem Proving in Higher Order Logics},
+  pages={114--129},
+  year={2005},
+  organization={Springer}
+}
+
+@article{harrison2007formalizing,
+  title={Formalizing basic complex analysis},
+  author={Harrison, John},
+  journal={From Insight to Proof: Festschrift in Honour of Andrzej Trybulec},
+  volume={10},
+  number={23},
+  pages={151--165},
+  year={2007}
+}
+
+
+@book {MR0217022,
+    AUTHOR = {Davenport, Harold},
+     TITLE = {Multiplicative number theory},
+    NOTE = {Lectures given at the University of Michigan, Winter Term},
+  PUBLISHER = {Markham Publishing Co., Chicago, Ill.},
+      YEAR = {1967},
+     PAGES = {vii+189},
+   MRCLASS = {10.40 (10.00)},
+  MRNUMBER = {0217022 (36 \#117)},
+MRREVIEWER = {H.-E. Richert},
+}
+
+@book {MR2378655,
+    AUTHOR = {Montgomery, Hugh L. and Vaughan, Robert C.},
+     TITLE = {Multiplicative number theory. {I}. {C}lassical theory},
+    SERIES = {Cambridge Studies in Advanced Mathematics},
+    VOLUME = {97},
+ PUBLISHER = {Cambridge University Press},
+   ADDRESS = {Cambridge},
+      YEAR = {2007},
+     PAGES = {xviii+552},
+      ISBN = {978-0-521-84903-6; 0-521-84903-9},
+   MRCLASS = {11-02 (11-01 11M06 11M26 11M45 11N05 11N37)},
+  MRNUMBER = {2378655 (2009b:11001)},
+MRREVIEWER = {Wolfgang Schwarz},
+}
+
+@book {MR2061214,
+    AUTHOR = {Iwaniec, Henryk and Kowalski, Emmanuel},
+     TITLE = {Analytic number theory},
+    SERIES = {American Mathematical Society Colloquium Publications},
+    VOLUME = {53},
+ PUBLISHER = {American Mathematical Society},
+   ADDRESS = {Providence, RI},
+      YEAR = {2004},
+     PAGES = {xii+615},
+      ISBN = {0-8218-3633-1},
+   MRCLASS = {11-02 (11Fxx 11Lxx 11Mxx 11Nxx)},
+  MRNUMBER = {2061214 (2005h:11005)},
+MRREVIEWER = {K. Soundararajan},
+}
+
+
+@book{zbMATH03968684,
+    Author = {E.C. {Titchmarsh}},
+    Title = {{The theory of the Riemann zeta-function. {\rm 2nd ed., rev. by D. R. Heath-Brown.}}},
+    Year = {1986},
+    Language = {English},
+    Publisher = {{Oxford Science Publications. Oxford: Clarendon Press}},
+    MSC2010 = {11M06 11-02 11M26 11N37 11L03},
+    Zbl = {0601.10026}
+}
+
+@inproceedings{de1970mathematical,
+  title="{The mathematical language AUTOMATH, its usage, and some of its extensions}",
+  author={De Bruijn, Nicolaas Govert},
+  booktitle={Symposium on automatic demonstration},
+  pages={29--61},
+  year={1970},
+  organization={Springer}
+}
+
+@article{Johansson2017arb,
+  author = {Fredrik Johansson},
+  title = {Arb: efficient arbitrary-precision midpoint-radius interval arithmetic},
+  journal = {IEEE Transactions on Computers},
+  year = {2017},
+  volume = {66},
+  issue = {8},
+  pages = {1281--1292},
+  doi = {10.1109/TC.2017.2690633},
+}
+
+@techreport{ThGr,
+Author = {{P}roject {T}eam {M}ARELLE},
+Title ={{M}athematical {R}easoning and {S}oftware: activity report 2014},
+Year = {2014},
+Institution = {{S}ophia {A}ntipolis - {M}\'editerran\'ee},
+Note = {{T}heme: {P}roofs and {V}erification},
+URL = {https://raweb.inria.fr/rapportsactivite/RA2014/marelle/marelle.pdf}
+}
+
+@article{e2014empirical,
+  title="{Empirical verification of the even Goldbach conjecture and computation of prime gaps up to $4\cdot 10^{18}$.}",
+  author={Oliveira e Silva, Tom{\`a}s and Herzog, Siegfried and Pardi, Silvio},
+  journal={Math. Comput.},
+  volume={83},
+  number={288},
+  pages={2033--2060},
+  year={2014}
+}
+
+@article{ramare2015explicit,
+  title={Explicit estimates on several summatory functions involving the Moebius function},
+  author={Ramar{\'e}, Olivier},
+  journal={Mathematics of Computation},
+  volume={84},
+  number={293},
+  pages={1359--1387},
+  year={2015}
 }

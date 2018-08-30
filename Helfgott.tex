@@ -1,0 +1,695 @@
+% \documentclass[11pt]{amsart}
+% \usepackage{amsmath,amsfonts,amsthm,amssymb,url,graphicx,algorithm}
+% \usepackage[noend]{algpseudocode}
+% \newcommand{\R}{\mathbb{R}}
+% \newcommand{\C}{\mathbb{C}}
+% \newcommand{\Z}{\mathbb{Z}}
+% \newcommand{\Q}{\mathbb{Q}}
+% \newcommand{\ie}{i.e.,}
+% \newcommand{\st}{s.t.}
+% \newcommand{\quadrec}[2]{\left(\frac{#1}{#2}\right)}
+% \newcommand{\njac}[2]{\lbrack {#1},{#2}\rbrack}
+% \DeclareFontFamily{OT1}{rsfs}{}
+% \DeclareFontShape{OT1}{rsfs}{n}{it}{<-> rsfs10}{}
+% \DeclareMathAlphabet{\mathscr}{OT1}{rsfs}{n}{it}
+% \DeclareMathOperator{\sgn}{sgn}
+% \DeclareMathOperator{\card}{card}
+% \DeclareMathOperator{\ord}{ord}
+% \DeclareMathOperator{\av}{av}
+% \DeclareMathOperator{\ar}{ar}
+% \DeclareMathOperator{\num}{num}
+% \DeclareMathOperator{\Res}{Res}
+% \DeclareMathOperator{\den}{den}
+% \DeclareMathOperator{\lcm}{lcm}
+% \DeclareMathOperator{\Lcm}{Lcm}
+% \DeclareMathOperator{\rad}{rad}
+% \DeclareMathOperator{\meas}{meas}
+% \DeclareMathOperator{\supp}{supp}
+% \DeclareMathOperator{\mo}{\,mod}
+% \DeclareMathOperator{\sq}{sq}
+% \DeclareMathOperator{\BS}{BS}
+% \DeclareMathOperator{\sm}{sm}
+% \DeclareMathOperator{\hyp}{hyp}
+% \DeclareMathOperator{\diam}{diam}
+% \DeclareMathOperator{\vol}{vol}
+% \DeclareMathOperator{\GL}{GL}
+% \DeclareMathOperator{\SL}{SL}
+% \DeclareMathOperator{\Li}{Li}
+% \DeclareMathOperator{\im}{im}
+% \DeclareMathOperator{\Area}{Area}
+% \DeclareMathOperator{\Dom}{Dom}
+% \DeclareMathOperator{\Vol}{Vol}
+% \DeclareMathOperator{\Disc}{Disc}
+% \DeclareMathOperator{\Sp}{Sp}
+% \DeclareMathOperator{\charac}{char}
+% \DeclareMathOperator{\irr}{irr}
+% \DeclareMathOperator{\rnk}{rank}
+% \DeclareMathOperator{\BSD}{\mathit{BSD}}
+% \DeclareMathOperator{\err}{err}
+% \DeclareMathOperator{\erf}{erf}
+% \DeclareMathOperator{\erfc}{erfc}
+% \DeclareMathOperator{\Fr}{Fr}
+% \DeclareMathOperator{\Gal}{Gal}
+% \DeclareMathOperator{\Cl}{Cl}
+% \DeclareMathOperator{\sqf}{sqf}
+% \DeclareMathOperator{\Tr}{Tr}
+% \DeclareMathOperator{\Sym}{Sym}
+% \DeclareMathOperator{\Alt}{Alt}
+% \DeclareMathOperator{\tr}{tr}
+% \DeclareMathOperator{\cl}{cl}
+% \DeclareMathOperator{\Si}{Si}
+% \DeclareMathOperator{\Ci}{Ci}
+% \newcommand{\sume}{\mathop{\sum\nolimits^{*\mkern-12mu}}\limits}
+% \newtheorem{prop}{Proposition}[section]
+% \newtheorem{thm}[prop]{Theorem}
+% \newtheorem*{main}{Main Theorem}
+% \newtheorem{cor}[prop]{Corollary} 
+% \newtheorem{lem}[prop]{Lemma}
+% \newtheorem{defn}{Definition}
+% \newtheorem{Exa}{Example}
+% \newtheorem*{defn*}{Definition}
+% \newenvironment{Rem}{{\bf Remark.}}{}
+% \numberwithin{equation}{section}
+% \title{Machine-assisted proofs: experiences from analytic number theory}
+% \author{Harald Andr\'es Helfgott}
+% \address{Harald A. Helfgott, 
+%   Mathematisches Institut,
+% Georg-August Universit\"{a}t G\"{o}ttingen, Bunsenstra{\ss}e 3-5, D-37073 G\"{o}ttingen,
+% Germany; IMJ-PRG, UMR 7586,
+%   58 avenue de France, B\^{a}timent S. Germain, case 7012,
+%   75013 Paris CEDEX 13, France}
+% \email{harald.helfgott@gmail.com}
+% \begin{document}
+% \maketitle
+% 
+\subsection{The varieties of machine assistance: main issues}
+
+When we say that our work on a proof is ``machine-assisted'', we may
+mean any of several related things. First, we may simply refer to exploratory
+work -- computations and plots that give us an idea of which statements are
+true. We may also speak of computations that are truly part of a proof --
+dealing with case-work, say, or numerical computations, which of course ought
+to be rigorous. Lastly, we may speak of {\em formal proofs}: their production
+and verification could in principle be done by hand, but part of their point
+is that they can be verified mechanically; moreover,
+as far as the working mathematician is concerned, they were essentially a
+useful fiction before computer assistance in their creation became possible.
+
+My present concerns center on the second kind of machine assistance just listed,
+namely, the use of computations -- numerical or symbolic -- as part of a proof. 
+The first issue to discuss is what is meant by rigorous computation. (That
+would be less of an issue for exploratory work, where all one wants is results
+that are sufficiently precise and almost certainly correct.) Another issue
+is that of error. Are computer errors at all likely? How do we reduce the
+possibility of programming errors, or, more generally, errors in machine-human
+interaction? For that matter, can computers help us check for errors in proofs
+altogether, whether the process of proof was computer-assisted or not?
+
+This last question does lead naturally to the matter of formal proofs. That
+matter gives rise to another sort of concern: what is the meaning
+and purpose of a proof, for us, as human beings practicing mathematics? I will
+not do more than touch upon
+that domain. What can be discussed more factually is the
+extent to which formal proofs are already a reality, particularly in number
+theory, and {\em how} they are a reality; such a discussion has to precede
+and inform more philosophical considerations.
+
+\subsection{Rigorous computation}
+
+We will be first of all
+concerned with the production of numerical results that are
+guaranteed to be correct. (The same matter goes by the names of
+``reliable computing'', or ``validated numerics''.)
+In exploratory work, we may ask, say, for the value of $\sin(0.1)$; however,
+a moment's thought shows that the true
+numerical value of $\sin(0.1)$ cannot even be stored in a computer --
+a decimal or binary expansion has to be cut off at some point. What can
+we do?
+
+\subsubsection{Basics on interval arithmetic}
+
+Rigorous computations with real numbers must take into account rounding errors
+and other sources of lack of precision. As we were saying, a
+generic element of $\mathbb{R}$ cannot even be represented
+in a computer. A transcendental number is, in general, given by an infinite
+sequence of digits, and computers have only finite space. Furthermore, computers
+are built so that they deal with integers, and, by extension, with
+rational numbers;
+they are fastest when working with rationals whose denominators are powers of
+$2$.
+
+{\em Interval arithmetic} provides a way to keep track of rounding errors
+  automatically, while providing data types for work in $\mathbb{R}$ and
+  $\mathbb{C}$. 
+  The basic data type is an {\em interval} $\lbrack a,b\rbrack$, where
+  $a,b\in \mathbb{Q}$. For obvious reasons of efficiency, we may
+  restrict $a$ and $b$ to be elements of the localization $Q_2$ of $\mathbb{Z}$
+  by the powers of $2$, i.e., the ring $Q_2$ of rationals whose
+  denominators are powers of $2$. (We also may decide to work with
+  $Q_2 \cup \{-\infty,\infty\}$ instead of $Q_2$.)
+
+  A procedure is said to implement a function $f:\mathbb{R}^k\to
+  \mathbb{R}$ if, given $B = (\lbrack a_i,b_i\rbrack)_{1\leq i\leq k}$,
+  where $a_i,b_i \in Q_2$, the procedure returns an interval $(a,b)$
+  containing $f(B)$, with $a,b\in Q_2$. Of course, one would expect a good
+  implementation not to return an interval $(a,b)$ much larger than 
+  it needs to be.
+
+  Interval arithmetic in this sense was first proposed in the 1950s and 1960s
+  (\cite{moore}; see also \cite{Young1931}, \cite{warmus1956},
+  \cite{sunaga2009}, among others).
+  There are several commonly used open-source implementations.
+  (The package ARB \cite{Johansson2017arb} implements a slight variant, {\em ball arithmetic}.)
+  A good interval-arithmetic package should implement not just the four
+  basic operations and some basic functions such as $\exp$, $\log$ or $\sin$,
+  but also as many commonly used transcendental functions as possible.
+
+  The main drawback of interval arithmetic is its time consumption.
+  Very roughly speaking, a procedure coded using a good
+  interval-arithmetic package
+  will typically take about $8$ times as long as the same
+  procedure coded without interval arithmetic.
+
+  There is also the fact
+  that the underlying floating-point routines must give validated results,
+  that is, results with a precise bound on the error term; it is best if
+  results are correct up to the last bit, with whatever rounding type
+  is specified, as all further bits after the last guaranteed bit are of course
+  useless. Correctly rounded floating-point results may feel like a basic
+  right, but the fact is that most processors do not guarantee this
+  arguable right
+  for anything other than the four basic operations,
+  and in fact often violate it.
+  Thus, transcendental functions have to be implemented in software. See, e.g.,
+  \cite{crlibm}. (Of course, it may not be fair to count the need for
+  a software implementation as part of the overhead of interval arithmetic;
+  we should not use wrong routines implemented in hardware to begin with.)
+  
+  The speed of computers in our days makes large-scale computations in interval
+  arithmetic possible; see, for instance,
+  D. Platt's verification of the Riemann Hypothesis for zeroes with imaginary
+  part $\leq 1.1\cdot 10^{11}$ \cite{Platt}.
+
+  {\em Alternatives.}  It is possible to avoid interval arithmetic (or rather its usage during the computation, with the attendant
+  overhead) by keeping
+  track of rounding errors {\em a priori}, that is,
+  analyzing carefully to what extent an error of a given size
+  in the input to a given procedure can affect the output.
+  %(or, in the inverse
+  %direction, how much an input can be changed without affecting the output
+  %significantly).
+  This is one of the classic subjects of numerical analysis
+  \cite{Wilkinson}, \cite{Higham}.
+  One clear drawback is that proceeding in this fashion for anything
+  outside a small set of well-studied tasks involves saving computer time at the
+  expense of human time, and creates one more occasion for human error.
+
+  It would make sense for it to be possible to be able to analyze rounding
+  errors a priori {\em with the help of a computer}. (The same goes
+  for errors that result from, say, truncating a series.) Systems for doing
+  as much exist, and in fact produce formal proofs (q.v.): FPTaylor
+  (which produces certificates for the formal system HOL Light),
+  Gappa (which gives certificates for the formal system Coq), Real2Float
+  (Coq again)\dots
+
+  However, none of these systems can treat loops, at least not if the
+  floating-point computation carried out in an iteration of the loop
+  depends on the floating-point computations carried out in previous iterations.
+  This
+  limitation is severe: it makes these systems unusable for one the kinds of computations
+  most common in number theory, namely, a computation or verification involving
+ sums or some other quantities defined by an iterative or recursive process. Such systems can be and have been
+  used to verify
+  that at least some of the routines used by interval-arithmetic packages are
+  correct, however. Moreover, there are presently tools that, if developed
+  further, should become able to give formal certificates for at least some
+  kinds of computations with loops in a fairly near future.
+  
+\subsubsection{Comparisons. Maxima and minima}
+
+In exploratory work, it may be fine to plot two functions
+$f,g:I\to \mathbb{R}$, where $I=\lbrack 0,1\rbrack$ (say) and decide that $f(x)<g(x)$ for all $x\in I$
+because the graph shows that it is so. Of course,
+that would not do as a proof. Fortunately, just as we can let a computer plot
+$f$ and $g$, we can let a computer prove that $f(x)<g(x)$ for all $x\in I$.
+
+In fact, it is particularly simple to do so by means of interval arithmetic.
+Let $f$ and $g$ be implemented in interval arithmetic. If $f(I)$ and $g(I)$
+do not overlap, we obtain either that $f(x)<g(x)$ for all $x\in I$ (if $f(I)$
+is to the left of $g(I)$) or that $f(x)>g(x)$ for all $x\in I$ (otherwise).
+If $f(I)$ and $g(I)$ do overlap, we divide $I$ in half, and recur:
+we do what we have just described
+to each half. We stop when we obtain that the statement we are trying to prove
+is false on some subinterval, or when we have divided $I$ into subintervals
+on each of which the statement is true. While this approach runs into
+difficulties for $x$ close to a point $x_0$ such that $f(x_0)=g(x_0)$, we can
+usually resolve such a situation by comparing the derivatives or higher
+derivatives of $f$ and $g$ at or near $x_0$.
+
+A very similar version of the bisection method in interval arithmetic
+(combined, if necessary, with automatic differentiation)
+can be used to locate maxima and minima, as well as roots.
+
+\subsubsection{Numerical integration (quadrature)}
+
+There are several well-known ways to estimate an integral and bound the error
+in the estimate, starting with, say, the trapezoid rule, or Simpson's rule,
+and including Euler-Maclaurin or Gaussian quadrature, for instance.
+It is generally possible to implement these methods in interval arithmetic.
+
+Matters can become more complicated if the integrand is not everywhere
+differentiable, or even if it not differentiable on the whole {\em closure}
+of the interval we are working on. A common case is that of an integrand of the form $|f(x)|$,
+where $f$ is everywhere differentiable, but $|f|$ is not differentiable at
+all zeroes of $f(x)=0$. That case and several other ones ought to be done
+automatically; they still require ad-hoc work at the time of writing.
+
+Even more ad-hoc work is required (for now) if we must compute a complex integral. For instance,
+it is possible to show that,
+for $P_{r}(s) = \prod_{p\leq r} (1-p^{-s})$ and $R$ the straight path from
+$200 i$ to $40000 i$,
+\[\frac{1}{\pi i} \int_{R} |P(s+1/2) P(s+1/4)|
+\frac{|\zeta(s+1/2)| |\zeta(s+1/4)|}{|s|^2} |d s| = 0.009269 + \text{error},\]
+where $|\text{error}|\leq 3\cdot 10^{-6}$. However, ``it is possible'' means
+for now ``one can obtain this result by e-mailing ARB's author
+(F. Johansson), editing the code he kindly sends you, and then
+running it overnight''. It is clear that the situation should (and will)
+improve.
+
+\subsection{Combining asymptotics and computations}
+
+Let us now discuss the way in which
+the need for computations arises most often in number
+theory. (It is not the only way; one can also need, say, verifications of
+finite chunks of the Riemann or Generalized Riemann Hypotheses of the kind we
+have already mentioned.)
+  Often, methods from analysis yield estimates of the following form:
+  \begin{equation}\label{eq:experr}
+    \textbf{expression}(n) = f(n) + \text{error},\end{equation}
+  where $|\text{error}|\leq g(n)$ and $g(n)$ is much smaller than $|f(n)|$
+  for $n$ sufficiently large. The question is what to do when $n$ is not
+  sufficiently large.
+
+  One answer is, of course, that one may compute $\textbf{expression}(n)$ for
+  $n$ not sufficiently large, that is, $n$ smaller than a constant $N$.
+  If we reduce our bound $g(n)$, then we reduce the constant $N$ such that
+  $g(n)$ is sufficiently smaller than $|f(n)|$ for $n\geq N$; reducing $N$
+  to a reasonable level is thus a challenge for us as analysts.
+  Computing $\textbf{expression}(n)$ reasonably efficiently for $n<N$ is
+  a challenge for us as programmers, or, what is almost always more
+  interesting,  as algorithm designers. Whether the algorithm 
+  for computing $\textbf{expression}(n)$ for $n\leq N$ runs in time
+  $O(N)$, $O(N^2)$ or $O(N^3)$ is obviously more important than the extent
+  to which the code has been optimized.
+
+  An interesting example is given by the proof of ternary Goldbach itself, taken
+  as a whole. Almost all of the effort went into proving an estimate
+  of the form (\ref{eq:experr}) for $\textbf{expression}(n)$ defined
+  to be the number of ways one can write $n$ as the sum of three primes
+  $p_1$, $p_2$, $p_3$ (counted with certain weights). It was then very
+  easy to show that $g(n)<|f(n)|$ for $n\geq 10^{27}$ odd. It followed
+  that every odd number $n\geq 10^{27}$ can be written as the
+  sum of three primes, i.e., ternary Goldbach holds for $n\geq 10^{27}$.
+  It remained to show that every odd number $7\leq n\leq 10^{27}$ can also be
+  written as the sum of three primes; then the ternary Goldbach conjecture
+  would follow.
+
+  Checking each odd number $\leq 10^{27}$ is out of current computational reach.
+  However, there is the following well-known trick. We can easily construct
+  an increasing succession of primes, all of them $<N$ but for the last
+  one, such that the difference between two consecutive primes in the list
+  is at least $4$ and at
+  most $M-2$, say; the time taken is not much larger than $O(N/M)$.
+  (Platt and I checked that for $N = 8.875\cdot 10^{30}$ and
+  $M = 4\cdot 10^{18}$; by now, there is even a formal proof of the same
+  for $N=10^{28}$ and the same $M$ (see \cite{ThGr}).) Then we can use a
+  verification by brute force
+  that the strong Goldbach conjecture holds for all even
+  numbers $4\leq n\leq M$, i.e., every even number $4\leq n\leq M$ can be
+  written as the sum of two primes. It then follows that every odd number
+  $7\leq n\leq N$ can be written as the sum of three primes: just let $p$
+  be the largest prime in the sequence such that $n-p\geq 4$, and apply
+  strong Goldbach to $n-p$, with the result that $n-p=p_1 + p_2$, say.
+  Then $n = p + p_1 + p_2$, and so we are done. The total time taken is
+  not much larger than $O(M+N/M)$, so we can simply set $M=\sqrt{N}$,
+  and obtain an algorithm running in time not much more than $O(\sqrt{N})$,
+  which is not too much for $N=10^{27}$.
+  
+  (As it happens, it had already been checked that strong Goldbach holds for
+  all even $n\leq M = 4\cdot 10^{18}+2$ (\cite{e2014empirical},
+  plus a trivial check for
+  $4\cdot 10^{18}+2$), so we can simply set $M=4\cdot 10^{18}+2$, and the proof
+  of the ternary Goldbach conjecture is done.)
+
+  Let us see a different, much smaller example. We would like to bound
+  the sum $m(x) =\sum_{n\leq x} \mu(n)/n$ for general $x>0$. The strongest
+  explicit bound is due to Ramar\'e \cite{ramare2015explicit}, who proved that
+  \begin{equation}\label{eq:ramar}
+    |m(x)|\leq \frac{0.0144}{\log x}\end{equation}
+  for $x\geq 96955$. (We would have a bound of $O_\epsilon(1/x^{1/2-\epsilon})$ if
+  we assumed the Riemann hypothesis, but that is out of reach; there
+  are also unconditional non-explicit bounds that are qualitatively
+  much stronger than (\ref{eq:ramar}) as $x\to \infty$, but there are
+  serious obstacles to making them explicit with constants reasonable enough
+  for the bounds to be usable.)
+
+  Clearly, we can compute $m(x)$ for all small integer values of $x$.
+  I wrote a C program using interval arithmetic to do so, and obtained, after
+  a couple of weeks on a rather ordinary PC, that
+  \begin{equation}\label{eq:smallmx}
+    |m(x)|\leq \sqrt{2/x}
+  \end{equation}
+  for all real $0<x\leq N = 10^{14}$, with $0.569449$ instead of $\sqrt{2}$ if
+  $x\geq 3$ is assumed. If a standard conjecture holds, the bound
+  (\ref{eq:smallmx}) is actually too strong to hold for all $x$.
+
+  Is it overshooting to test (\ref{eq:smallmx})? Perhaps, but, since the
+  obvious algorithm for checking (\ref{eq:smallmx}) for all $x\leq N$ takes
+  time essentially linear on $N$, we might as well allow ourselves a large $N$.
+  Also to the point -- it is possible to combine (\ref{eq:ramar}) and
+  (\ref{eq:smallmx}) to prove a result valid for $x$ small and large:
+  given any $y>1$ and any $0<x\leq y$,
+  \[|m(x)|\leq \sqrt{2/x} + 0.0144\cdot \frac{(y/t)^c}{\log y},\]
+  where $c=1/\log N= 1/\log 10^{14}$. Here, the larger $N$ is, the better.
+  
+  Of course, in this example, it was easy to give a fast algorithm. For
+  more general sums I had to deal with, the obvious algorithm would run in
+  time $O(N^2)$ or $O(N^3)$, and finding an algorithm that would run in,
+  say, time $O(N \log N)$ and space $O(\sqrt{N} \log \log N)$ was a challenge.
+%  more complicated example (where linear-time algorithm is not obvious) \dots
+  
+  
+\subsection{Error avoidance}
+
+In practice, computer errors in the strict sense
+are barely an issue, except perhaps for very large computations. (By
+``computer error'' we mean a malfunction in a correctly designed circuit.
+There is also the issue of incorrectly designed circuits, such as those in the
+original Pentium chip, whose flaw, as it happens, was found through a
+computation in number theory. Such situations are nowadays largely avoided
+through {\em formal verification} -- another interesting area.)
+Computers have long had various inbuilt tools (e.g., checksums) for error
+detection and correction. Moreover, there is the obvious fact that the same
+computation can be run time and again, possibly on different hardware.
+Such a thing would be cumbersome or expensive
+only if the computation were very large indeed.
+(Admittedly, that is also the case when the probability of computer
+error might not be overwhelmingly negligible.)
+
+Almost all of the time, the actual issue is human error: errors in programming,
+and errors in input/output. Of course, human beings
+also make mistakes when they don't use computers. There are conceptual
+mistakes, and then there are silly errors,
+especially in computations or tedious case-work. Presumably, whatever discipline
+we adopt to avoid errors in programming and input/output can also be adapted
+to weed out silly mistakes in general.
+
+Before we discuss formal proofs, we should touch upon the more humble matter
+of everyday discipline.\footnote{Specialists in formal proofs remind me that
+  ``everyday discipline'' in the sense I am about to discuss is also an issue
+  for them.}
+Here I can simply describe my current practice,
+particularly in the context of my proof of the ternary Goldbach
+conjecture. (The first version of the proof is available online, both
+as a series of preprints and as a book draft \cite{Helfbook}; the
+version to be published is in preparation.) As is well-known,
+the ternary Goldbach conjecture states that every odd integer $n\geq 7$ can
+be written as the sum of three prime numbers.
+
+
+When facing computational tasks, I tend to program a great deal at first, but
+try to minimize the number of programs used in the submitted version of
+a book or paper, and keep them short. Nowadays I classify tasks in two
+categories. For time- and
+space-intensive computations, I am whittling down my code to a few programs
+in C, submitted or to be submitted to referees. The programs are or will be
+available upon request. 
+
+For small computations, I now use Sage/Python code, almost all of it
+included in the TeX source of the book. (The code for small computations that
+take more than a couple of seconds has been submitted together with the programs
+in C just mentioned.) It is an easy matter to keep Python
+code brief and readable. Thanks to SageTeX, input and output are automated,
+in that the output of Sage/Python code is displayed automatically in the 
+file that TeX outputs. For instance, given two variables called \texttt{result1}
+and \texttt{result2}, with values $5$ and $7$, we can type the TeX code
+\begin{verbatim}
+Hence,  $f(x)\leq \sage{result1 + result2}$.
+\end{verbatim}
+and obtain
+\begin{quote}
+  Hence, $f(x)\leq 12$.
+\end{quote}
+In this way, the possibility of human error in copying input/output and
+updating material is reduced. All code can be run afresh between two
+compilations of the TeX file; indeed, I run it afresh (and have to run it
+afresh) after any change to any code in the file. Someone downloading the
+source code may decide to run the code or not; it is very easy to do so
+for anyone with Sage installed. It is also very easy to display all code;
+all that is involved is switching
+a single flag at the beginning of the source code.
+
+There is a question that cannot be avoided, namely, whether
+it is right to use a large computer-algebra system in a proof. It is in
+general unsatisfactory to say ``By M.,\dots''\footnote{Here
+  M. stands for Mammoth, or anything else that is closed-source and very large.} before a claim, as some
+papers do. Consequently, in the first version of my proof of ternary
+Goldbach, I used Sage only in an exploratory role, and did all coding in C.
+At the same time, Sage is open-source, peer-reviewed and highly modular.
+Because it is modular, we depend only on the correctness of the relatively
+small parts of it that we use in the proof; in my case, that amounts to
+Python, basic symbolic algebra and ARB.
+In part for this reason, and in part for the reasons outlined above
+(code readability, code organization reduction of human error in input/output),
+I decided that the advantages of using Sage/Python for small computations
+that would be embedded in the TeX code overwhelmed any reasonable misgivings
+one might have about using Sage in a proof in this particular way.
+
+\subsection{Automated proofs. Formal proofs}
+
+\subsubsection{Automated proofs in practice}
+
+Informally speaking,
+G\"odel's incompleteness theorem states that, in a general axiomatic
+system -- in particular, in any finite axiomatic system that includes basic
+arithmetic, including exponentiation -- there are truths that cannot be proved
+starting from the axioms. In particular, we cannot ask a machine to prove
+all true statements.
+
+Moreover, even in axiomatic systems that {\em are} complete, the problem
+of finding a proof may be (and in fact is) computationally hard. Indeed,
+the first problem to be proven to be NP-complete was that of Boolean
+satisfiability; in other words, if we could determine rapidly whether the
+value of the variables in a Boolean formula can be set so that the formula
+is true, we could solve rapidly
+{\em any} problem in a very broad class (essentially, any problem whose
+solution can be verified rapidly).
+
+Does that mean that fully automated theorem proving is hopeless? Not
+necessarily. First, a machine could prove {\em some} true statements,
+even if it cannot prove every true statement; after all, human beings are in
+that same situation. Second, a computer can proceed by heuristics to solve
+quickly some cases of a problem that is computationally hard in general.
+(Such is the situation for Boolean satisfiability.)
+Third, a problem may be small enough (in terms of its number of variables, say)
+that an inefficient algorithm running on a computer can still solve it in a
+reasonable time, even though its solution is non-obvious or cumbersome to a
+human.
+
+I have had little experience with automated theorem proving -- and in fact
+was surprised to see that it could be used in practice at all. At some point,
+I wanted to prove the following lemma: 
+ for all  $0<x\leq y_1,y_2<1$ with $y_1^2\leq x$, $y_2^2\leq x$,
+\begin{equation}\label{eq:odmalicka}
+1 + \frac{y_1 y_2}{(1-y_1+x) (1-y_2+x)} \leq
+ \frac{(1-x^3)^2 (1-x^4)}{(1- y_1 y_2) (1 - y_1 y_2^2) (1 - y_1^2 y_2)} .
+\end{equation}
+Now, this is a statement in the theory of real closed fields, which is in fact
+complete; a proof has to exist. It turns out that there is a freely available
+program QEPCAD \cite{QEPCAD} implementing an algorithm that proves statements
+in the theory of real closed fields (by {\em CAD}, that is,
+cylindrical algebraic
+  decomposition \cite{MR0403962}). Can it deal with (\ref{eq:odmalicka})?
+Not on my computer, and that is not surprising: the computational
+complexity of CAD is doubly exponential in $n$, with base proportional
+to the maximal degree of the polynomials involved. However,
+thinking a little, it is not hard to eliminate a variable in
+(\ref{eq:odmalicka}), in that one can show that the maximum of the
+left side minus the right side has to be attained when either
+$y_1 = y_2$, $y_i = \sqrt{x}$ or $y_i = x$ holds for at least one of $i=1,2$.
+QEPCAD proves the resulting inequality in two variables with ease.
+
+Since (\ref{eq:odmalicka}) has quantifiers of only one kind
+($\forall x \forall y_1 \forall y_2$), there are alternative algorithms
+that solves the problem in time exponential on the number of variables
+(see \cite[Ch. 11]{opac-b1124307} and references therein).
+However, there does not seem to be a practical, reasonably efficient
+implementation of the exponential-time algorithm commonly available just yet.
+
+In the end, I found an alternative way to prove what I truly wanted, and so
+I no longer needed (\ref{eq:odmalicka}) at all. It was still interesting to
+learn that automatic provers could sometimes establish auxiliary lemmas that
+are usable in practice. (Of course, in some sense,
+the simple combinations of the bisection method and interval arithmetic
+we have already discussed also fall into this category.) It was also
+interesting to learn of the extent to which
+practice still fell behind theory -- and
+of how ``computationally hard'' does not always mean ``hopeless'' in practice.
+
+Again, my personal comments should be understood as coming from the possibly
+na\"ive perspective of a number theorist. I have recently learned that
+Boolean-satisfiability (SAT) solvers are being used intensively in
+combinatorics. There, one of the main issues is error in the human/computer
+interface: the interface of an automated solver is not necessarily
+intuitive, and some claimed proofs in the literature are the result of
+inputting the problem into a SAT solver incorrectly.
+
+At any rate, it seems clear that the role of automated provers in the
+foreseeable future will be one of {\em assistance} to the human prover.
+Thus we are led to our next, broader subject.
+
+\subsubsection{Formal proofs and proof assistants}
+
+Contrary to what we may sometimes tell ourselves,
+what we call a proof in our everyday practice is not quite the same as what
+we would call a proof in a logic course. The latter -- called a
+{\em formal proof} for clarity -- is a sequence of symbols whose
+correctness is a purely
+syntactic property that can be checked by a monkey grinding
+an organ. In contrast, a proof, for the working mathematician, is a convincing
+argument that can in principle be turned into a formal proof.
+
+Until relatively
+recently, ``in principle'' came with an enormous caveat: none but the
+simplest sort of proofs was turned into formal proofs. Our imaginary
+organ and monkey were first replaced by a (real) computer system in 1967
+(de Bruijn's AUTOMATH \cite{de1970mathematical}),
+but the task of producing a formal proof remained solely
+in the hands of humans, and was very cumbersome.
+
+The situation has
+gradually changed thanks to {\em proof assistants}, programs whose role it is
+to help a human being write a formal proof. There is now a number of such
+assistants: Mizar, Coq, Isabelle, HOL Light,\dots
+
+One notable recent success was the second proof of Hales'
+sphere packing theorem. As is well-known, the first proof
+(\cite{Hales2005}; see also \cite{lagarias2011kepler}) 
+was computer-assisted in the more traditional ways discussed in previous
+sections. That first proof
+met with some misgivings: it involved a great deal of case-work
+(thus increasing the possibility of human error, in part because
+the
+refereeing process became very onerous), and the computer code 
+ran up to about 40000 lines (making the code practically impossible to referee)
+The second-generation proof \cite{Halesetal2017a} is a formal proof,
+written and verified by means of the Isabelle and HOL Light proof assistants.
+
+In which fields of mathematics is such an effort now feasible?
+Large areas, including much of basic real analysis, remained uncovered until
+recently. As far as analytic number theory is concerned: the first formal
+proof of the Prime Number Theorem \cite{avigad2007formally} was constructed
+in 2005, by means of Isabelle; it is based on Selberg's elementary proof,
+which is
+often seen as more difficult, or less natural, than more traditional proofs
+by complex analysis. The first analytic proof, based on Newman's simplified
+version of the traditional approach \cite{newman1980simple}, was given in
+\cite{harrison-pnt}; it relies the fact that some of real and complex analysis
+is now available in HOL Light \cite{harrison2005hol}, \cite{harrison2007formalizing}, and necessitated giving
+formal proofs of some basic facts about the Riemann zeta function. 
+
+In analytic number theory, we are, then, perhaps just past the beginning.
+The next natural step would be to formalize much of a first-year graduate
+textbook -- say, the results in \cite{MR0217022} and \cite{MR2378655},
+possibly with different
+proofs, together with some sieve theory, and also \cite{zbMATH03968684};
+then we would need large parts of \cite{MR2061214}.
+(Replace chapters of the older books here by more modern sources when
+needed.) Then we would be able to
+start working on newer or new material. Of course, one can also proceed
+backwards, setting oneself a challenge (several of the major results in
+\cite{MR2061214} would do nicely) and working backwards from it,
+proving whatever basic results one needs.
+
+This last strategy is, in a sense, similar to what I did in the end for
+ternary Goldbach; I had to ask about, learn about, and prove explicit
+analogues of many basic results in analytic number theory. Sometimes, to my
+na\"ive surprise, I had to do without a standard technique or result, since
+no practical explicit analogue existed or could realistically be proved.
+We will presumably face the same kind of challenge when we try to give 
+formal proofs of the main results of twentieth-century number theory,
+including, why not, Vinogradov's three-prime theorem.
+
+What about formal proofs of explicit results? Why not a formal proof of
+ternary Goldbach? Why not indeed, in the long run, but we have to be realistic
+about the fact that both making a proof explicit and making it formal take
+plenty of work, and of course can also lengthen the proof greatly. It may be
+that the de Bruijn factor -- that is, the informal quantity defined as the
+ratio of the length of the formal version of the proof to the original, conventional (``informal''?) version, however stored -- is lower for some explicit results, as they
+include a level of detail not always needed for non-explicit results. Time will
+tell. Of course one can also say that formal proofs are more sorely needed
+for explicit results; while, in general,
+they may not elicit the same suspicion as results with plenty of case-work,
+they may be more likely to be in the ``fixable, but incorrect as stated''
+category than their non-explicit counterparts. (Asymptotic notation is
+a carpet under which both known and unnoticed dirt can be conveniently swept.)
+Thus it would be a very worthwhile task -- for the fairly near future --
+to give formal proofs for basic explicit
+estimates that will be used again and again.
+
+\subsection{Final considerations}
+
+A point often made in connection with computer-assisted proofs is that the
+purpose of proof is not just to establish truth, but to demonstrate and
+advance understanding. The worth of a proof understandable to no one
+would thus be limited.
+
+This viewpoint is valid, but may not really be specially relevant to
+computer-assisted proofs as they are currently developing. It could certainly
+be a point against automated provers, particularly if their output is not
+intelligible. However, in most fields,
+automated provers seem likely to continue playing at most an auxiliary role, 
+proving small lemmas that would be cumbersome and not particularly
+enlightening for a human to prove. (Does (\ref{eq:odmalicka}) have any
+``meaning''?)
+Computer-assisted formal proofs are a
+different matter: there, we start with a proof in the everyday sense, that is,
+a proof that is produced by human beings and understandable to a (hopefully
+proper) superset of the same; we then formalize it, with the help of a computer,
+with the more solid establishment of truth as the primary or sole aim.
+
+As for case-work: while it is often locally easy to understand (so to
+speak), it is true that it
+can feel meaningless, unaesthetic, and an invitation to error by
+means of tedium. However, that is an issue with case-work in general, and not
+with computer-based case-work in particular. Computers can, at least, play
+a role in reducing or eliminating error from case-work.
+
+Moreover, the kind of finite verification typical of number theory
+cannot really be said to be case-work in this sense. Instead of having many
+slightly different cases, we have typically a single equality or inequality
+that must be verified for very many integers, or for all values of a variable
+under a certain threshold. Moreover, what we verify is often far from meaningless: if a computation verifies that the first $10^9$ non-trivial zeroes of the
+Riemann zeta function lie on the critical line, or that $\sum_{n\leq x}
+\mu(n)$ is bounded by not much more than $\sqrt{x}$ for all $x\leq N$,
+we are verifying finite parts or finite consequences of standard conjectures
+that we have very good reasons to believe in -- and to believe out of reach.
+%It is also the case that, in analytic number theory, we often prove bounds
+%that are stronger than what we need; that is as sensible a practice in building
+%a proof as in building a bridge. Thus
+
+The assistance of computers can lead us both to results that were previously
+out of reach and to a higher standard in certainty and rigor.
+It may be some time before the standard of rigor set by formal proofs
+becomes widespread, but we have come to the point where computers, correctly
+used, can quell misgivings rather than give rise to them. 
+%quite the same thing. Can also try to overcalculate a little (cf. building
+%a house) \dots
+
+%\dots (human replaceability?) \dots
+
+{\bf Acknowledgements.} Many thanks are due to Guillaume Melquiond, Assia Mahboubi and Victor Magron for their feedback.
+%\bibliographystyle{alpha}
+%\bibliography{icmprint}
+%\end{document}
+
