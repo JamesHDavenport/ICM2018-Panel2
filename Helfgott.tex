@@ -82,7 +82,7 @@
 % \begin{document}
 % \maketitle
 % 
-\subsection{The varieties of machine assistance: main issues}
+\subsection{The varieties of machine assistance: Main issues.}
 
 When we say that our work on a proof is ``machine-assisted'', we may
 mean any of several related things. First, we may simply refer to exploratory
@@ -218,10 +218,13 @@ $2$.
   This
   limitation is severe: it makes these systems unusable for one the kinds of computations
   most common in number theory, namely, a computation or verification involving
- sums or some other quantities defined by an iterative or recursive process. Such systems can be and have been
+  sums or some other quantities defined by an iterative or recursive process.
+  (For an example, see the discussion of the sum $m(x)$ in \S \ref{sec:asymcomp}.)
+  
+  On the other hand, systems for analyzing rounding errors can be and have been
   used to verify
   that at least some of the routines used by interval-arithmetic packages are
-  correct, however. Moreover, there are presently tools that, if developed
+  correct. Moreover, there are presently tools that, if developed
   further, should become able to give formal certificates for at least some
   kinds of computations with loops in a fairly near future.
   
@@ -276,10 +279,10 @@ for now ``one can obtain this result by e-mailing ARB's author
 running it overnight''. It is clear that the situation should (and will)
 improve.
 
-\subsection{Combining asymptotics and computations}
+\subsection{Combining asymptotics and computations}\label{sec:asymcomp}
 
 Let us now discuss the way in which
-the need for computations arises most often in number
+the need for computations typically arises in number
 theory. (It is not the only way; one can also need, say, verifications of
 finite chunks of the Riemann or Generalized Riemann Hypotheses of the kind we
 have already mentioned.)
@@ -292,7 +295,7 @@ have already mentioned.)
 
   One answer is, of course, that one may compute $\textbf{expression}(n)$ for
   $n$ not sufficiently large, that is, $n$ smaller than a constant $N$.
-  If we reduce our bound $g(n)$, then we reduce the constant $N$ such that
+  If we reduce our bound $g(n)$, then we are reducing the constant $N$ such that
   $g(n)$ is sufficiently smaller than $|f(n)|$ for $n\geq N$; reducing $N$
   to a reasonable level is thus a challenge for us as analysts.
   Computing $\textbf{expression}(n)$ reasonably efficiently for $n<N$ is
@@ -302,8 +305,16 @@ have already mentioned.)
   $O(N)$, $O(N^2)$ or $O(N^3)$ is obviously more important than the extent
   to which the code has been optimized.
 
-  An interesting example is given by the proof of ternary Goldbach itself, taken
-  as a whole. Almost all of the effort went into proving an estimate
+  An interesting example is given by the proof of the
+  ternary Goldbach conjecture, taken as a whole.
+  (The first version of the proof is available online, both
+  as a series of preprints and as a book draft \cite{Helfbook}; the
+  version to be published is in preparation.)
+  As is well-known,
+  the ternary Goldbach conjecture states that every odd integer $n\geq 7$ can
+  be written as the sum of three prime numbers.
+
+  Almost all of the effort involved in the proof went into proving an estimate
   of the form (\ref{eq:experr}) for $\textbf{expression}(n)$ defined
   to be the number of ways one can write $n$ as the sum of three primes
   $p_1$, $p_2$, $p_3$ (counted with certain weights). It was then very
@@ -317,32 +328,35 @@ have already mentioned.)
   Checking each odd number $\leq 10^{27}$ is out of current computational reach.
   However, there is the following well-known trick. We can easily construct
   an increasing succession of primes, all of them $<N$ but for the last
-  one, such that the difference between two consecutive primes in the list
+  one, such that the difference between any two consecutive primes in the list
   is at least $4$ and at
   most $M-2$, say; the time taken is not much larger than $O(N/M)$.
   (Platt and I checked that for $N = 8.875\cdot 10^{30}$ and
   $M = 4\cdot 10^{18}$; by now, there is even a formal proof of the same
-  for $N=10^{28}$ and the same $M$ (see \cite{ThGr}).) Then we can use a
+  for $N=10^{28}$ and $M=4\cdot 10^{18}$ (see \cite{ThGr}).) Then we can use a
   verification by brute force
   that the strong Goldbach conjecture holds for all even
   numbers $4\leq n\leq M$, i.e., every even number $4\leq n\leq M$ can be
   written as the sum of two primes. It then follows that every odd number
   $7\leq n\leq N$ can be written as the sum of three primes: just let $p$
   be the largest prime in the sequence such that $n-p\geq 4$, and apply
-  strong Goldbach to $n-p$, with the result that $n-p=p_1 + p_2$, say.
-  Then $n = p + p_1 + p_2$, and so we are done. The total time taken is
+  strong Goldbach to $n-p$, which has to be at least $M$. We obtain that
+  $n-p=p_1 + p_2$.
+  Thus $n = p + p_1 + p_2$, and so we are done. The total time taken is
   not much larger than $O(M+N/M)$, so we can simply set $M=\sqrt{N}$,
   and obtain an algorithm running in time not much more than $O(\sqrt{N})$,
   which is not too much for $N=10^{27}$.
   
-  (As it happens, it had already been checked that strong Goldbach holds for
+  As it happens, it had already been checked that strong Goldbach holds for
   all even $n\leq M = 4\cdot 10^{18}+2$ (\cite{e2014empirical},
   plus a trivial check for
-  $4\cdot 10^{18}+2$), so we can simply set $M=4\cdot 10^{18}+2$, and the proof
-  of the ternary Goldbach conjecture is done.)
+  $4\cdot 10^{18}+2$). Hence, we can simply set $M=4\cdot 10^{18}+2$, and the proof
+  of the ternary Goldbach conjecture is done.
 
   Let us see a different, much smaller example. We would like to bound
-  the sum $m(x) =\sum_{n\leq x} \mu(n)/n$ for general $x>0$. The strongest
+  the sum $m(x) =\sum_{n\leq x} \mu(n)/n$ for general $x>0$. (That sum and its
+  variants play an important role in the proof of ternary Goldbach.)
+  The strongest
   explicit bound is due to Ramar\'e \cite{ramare2015explicit}, who proved that
   \begin{equation}\label{eq:ramar}
     |m(x)|\leq \frac{0.0144}{\log x}\end{equation}
@@ -360,22 +374,22 @@ have already mentioned.)
     |m(x)|\leq \sqrt{2/x}
   \end{equation}
   for all real $0<x\leq N = 10^{14}$, with $0.569449$ instead of $\sqrt{2}$ if
-  $x\geq 3$ is assumed. If a standard conjecture holds, the bound
+  $x\geq 3$ is assumed. Note that, if a standard conjecture holds, the bound
   (\ref{eq:smallmx}) is actually too strong to hold for all $x$.
 
-  Is it overshooting to test (\ref{eq:smallmx})? Perhaps, but, since the
+  Is it overshooting to test (\ref{eq:smallmx}) for all $x\leq 10^{14}$? Perhaps, but, since the
   obvious algorithm for checking (\ref{eq:smallmx}) for all $x\leq N$ takes
   time essentially linear on $N$, we might as well allow ourselves a large $N$.
   Also to the point -- it is possible to combine (\ref{eq:ramar}) and
-  (\ref{eq:smallmx}) to prove a result valid for $x$ small and large:
+  (\ref{eq:smallmx}) to prove a result valid for all $x$, small and large:
   given any $y>1$ and any $0<x\leq y$,
   \[|m(x)|\leq \sqrt{2/x} + 0.0144\cdot \frac{(y/t)^c}{\log y},\]
   where $c=1/\log N= 1/\log 10^{14}$. Here, the larger $N$ is, the better.
   
   Of course, in this example, it was easy to give a fast algorithm. For
-  more general sums I had to deal with, the obvious algorithm would run in
+  some other sums I had to deal with, the obvious algorithm would have run in
   time $O(N^2)$ or $O(N^3)$, and finding an algorithm that would run in,
-  say, time $O(N \log N)$ and space $O(\sqrt{N} \log \log N)$ was a challenge.
+  say, time $O(N \log N)$ and space roughly $O(\sqrt{N})$ was a challenge.
 %  more complicated example (where linear-time algorithm is not obvious) \dots
   
   
@@ -386,7 +400,8 @@ are barely an issue, except perhaps for very large computations. (By
 ``computer error'' we mean a malfunction in a correctly designed circuit.
 There is also the issue of incorrectly designed circuits, such as those in the
 original Pentium chip, whose flaw, as it happens, was found through a
-computation in number theory. Such situations are nowadays largely avoided
+computation in number theory (\cite{Pentium}, \cite{cipra1995number}).
+Such situations are nowadays largely avoided
 through {\em formal verification} -- another interesting area.)
 Computers have long had various inbuilt tools (e.g., checksums) for error
 detection and correction. Moreover, there is the obvious fact that the same
@@ -410,14 +425,10 @@ of everyday discipline.\footnote{Specialists in formal proofs remind me that
   for them.}
 Here I can simply describe my current practice,
 particularly in the context of my proof of the ternary Goldbach
-conjecture. (The first version of the proof is available online, both
-as a series of preprints and as a book draft \cite{Helfbook}; the
-version to be published is in preparation.) As is well-known,
-the ternary Goldbach conjecture states that every odd integer $n\geq 7$ can
-be written as the sum of three prime numbers.
+conjecture. 
 
-
-When facing computational tasks, I tend to program a great deal at first, but
+When facing computational tasks, I tend to program a great deal at first.
+However, I
 try to minimize the number of programs used in the submitted version of
 a book or paper, and keep them short. Nowadays I classify tasks in two
 categories. For time- and
@@ -460,9 +471,10 @@ Because it is modular, we depend only on the correctness of the relatively
 small parts of it that we use in the proof; in my case, that amounts to
 Python, basic symbolic algebra and ARB.
 In part for this reason, and in part for the reasons outlined above
-(code readability, code organization reduction of human error in input/output),
+(code readability, code organization,
+reduction of human error in input/output),
 I decided that the advantages of using Sage/Python for small computations
-that would be embedded in the TeX code overwhelmed any reasonable misgivings
+that can be embedded in the TeX code overwhelmed any reasonable misgivings
 one might have about using Sage in a proof in this particular way.
 
 \subsection{Automated proofs. Formal proofs}
@@ -479,7 +491,7 @@ all true statements.
 Moreover, even in axiomatic systems that {\em are} complete, the problem
 of finding a proof may be (and in fact is) computationally hard. Indeed,
 the first problem to be proven to be NP-complete was that of Boolean
-satisfiability; in other words, if we could determine rapidly whether the
+satisfiability (SAT); in other words, if we could determine rapidly whether the
 value of the variables in a Boolean formula can be set so that the formula
 is true, we could solve rapidly
 {\em any} problem in a very broad class (essentially, any problem whose
@@ -490,10 +502,11 @@ necessarily. First, a machine could prove {\em some} true statements,
 even if it cannot prove every true statement; after all, human beings are in
 that same situation. Second, a computer can proceed by heuristics to solve
 quickly some cases of a problem that is computationally hard in general.
-(Such is the situation for Boolean satisfiability.)
+%(Such is the situation for Boolean satisfiability.)
 Third, a problem may be small enough (in terms of its number of variables, say)
-that an inefficient algorithm running on a computer can still solve it in a
-reasonable time, even though its solution is non-obvious or cumbersome to a
+that an inefficient algorithm running on a computer can still solve the
+problem in a
+reasonable time, even when its solution would be non-obvious or cumbersome to a
 human.
 
 I have had little experience with automated theorem proving -- and in fact
@@ -510,7 +523,7 @@ program QEPCAD \cite{QEPCAD} implementing an algorithm that proves statements
 in the theory of real closed fields (by {\em CAD}, that is,
 cylindrical algebraic
   decomposition \cite{MR0403962}). Can it deal with (\ref{eq:odmalicka})?
-Not on my computer, and that is not surprising: the computational
+Not on my desktop, and that is not surprising: the computational
 complexity of CAD is doubly exponential in $n$, with base proportional
 to the maximal degree of the polynomials involved. However,
 thinking a little, it is not hard to eliminate a variable in
@@ -521,15 +534,14 @@ QEPCAD proves the resulting inequality in two variables with ease.
 
 Since (\ref{eq:odmalicka}) has quantifiers of only one kind
 ($\forall x \forall y_1 \forall y_2$), there are alternative algorithms
-that solves the problem in time exponential on the number of variables
+that solve the problem in time exponential on the number of variables
 (see \cite[Ch. 11]{opac-b1124307} and references therein).
 However, there does not seem to be a practical, reasonably efficient
 implementation of the exponential-time algorithm commonly available just yet.
 
 In the end, I found an alternative way to prove what I truly wanted, and so
 I no longer needed (\ref{eq:odmalicka}) at all. It was still interesting to
-learn that automatic provers could sometimes establish auxiliary lemmas that
-are usable in practice. (Of course, in some sense,
+learn that automatic provers could sometimes establish useful auxiliary lemmas. (Of course, in some sense,
 the simple combinations of the bisection method and interval arithmetic
 we have already discussed also fall into this category.) It was also
 interesting to learn of the extent to which
@@ -581,7 +593,7 @@ met with some misgivings: it involved a great deal of case-work
 (thus increasing the possibility of human error, in part because
 the
 refereeing process became very onerous), and the computer code 
-ran up to about 40000 lines (making the code practically impossible to referee)
+ran up to about 40000 lines (making the code practically impossible to referee).
 The second-generation proof \cite{Halesetal2017a} is a formal proof,
 written and verified by means of the Isabelle and HOL Light proof assistants.
 
@@ -594,8 +606,7 @@ which is
 often seen as more difficult, or less natural, than more traditional proofs
 by complex analysis. The first analytic proof, based on Newman's simplified
 version of the traditional approach \cite{newman1980simple}, was given in
-\cite{harrison-pnt}; it relies the fact that some of real and complex analysis
-is now available in HOL Light \cite{harrison2005hol}, \cite{harrison2007formalizing}, and necessitated giving
+\cite{harrison-pnt}; it relied on the fact that some of real and complex analysis had become available in HOL Light \cite{harrison2005hol}, \cite{harrison2007formalizing}, and also necessitated giving
 formal proofs of some basic facts about the Riemann zeta function. 
 
 In analytic number theory, we are, then, perhaps just past the beginning.
@@ -604,8 +615,7 @@ textbook -- say, the results in \cite{MR0217022} and \cite{MR2378655},
 possibly with different
 proofs, together with some sieve theory, and also \cite{zbMATH03968684};
 then we would need large parts of \cite{MR2061214}.
-(Replace chapters of the older books here by more modern sources when
-needed.) Then we would be able to
+(Replace chapters of the older books here by more modern sources when needed.) Then we would be able to
 start working on newer or new material. Of course, one can also proceed
 backwards, setting oneself a challenge (several of the major results in
 \cite{MR2061214} would do nicely) and working backwards from it,
@@ -620,22 +630,23 @@ We will presumably face the same kind of challenge when we try to give
 formal proofs of the main results of twentieth-century number theory,
 including, why not, Vinogradov's three-prime theorem.
 
-What about formal proofs of explicit results? Why not a formal proof of
+What about formal proofs of explicit results, or of statements whose proofs
+make crucial use of explicit intermediate results? Why not a formal proof of
 ternary Goldbach? Why not indeed, in the long run, but we have to be realistic
 about the fact that both making a proof explicit and making it formal take
 plenty of work, and of course can also lengthen the proof greatly. It may be
 that the de Bruijn factor -- that is, the informal quantity defined as the
-ratio of the length of the formal version of the proof to the original, conventional (``informal''?) version, however stored -- is lower for some explicit results, as they
+ratio of the length of the formal version of the proof to the original, conventional (``informal''?) version, however stored -- is lower for some explicit results, as their proofs tend to
 include a level of detail not always needed for non-explicit results. Time will
 tell. Of course one can also say that formal proofs are more sorely needed
 for explicit results; while, in general,
-they may not elicit the same suspicion as results with plenty of case-work,
+they do not elicit the same suspicion as results with plenty of case-work,
 they may be more likely to be in the ``fixable, but incorrect as stated''
 category than their non-explicit counterparts. (Asymptotic notation is
 a carpet under which both known and unnoticed dirt can be conveniently swept.)
 Thus it would be a very worthwhile task -- for the fairly near future --
 to give formal proofs for basic explicit
-estimates that will be used again and again.
+estimates that are used again and again.
 
 \subsection{Final considerations}
 
@@ -656,7 +667,7 @@ Computer-assisted formal proofs are a
 different matter: there, we start with a proof in the everyday sense, that is,
 a proof that is produced by human beings and understandable to a (hopefully
 proper) superset of the same; we then formalize it, with the help of a computer,
-with the more solid establishment of truth as the primary or sole aim.
+having the more solid establishment of truth as the primary or sole aim.
 
 As for case-work: while it is often locally easy to understand (so to
 speak), it is true that it
@@ -673,13 +684,14 @@ under a certain threshold. Moreover, what we verify is often far from meaningles
 Riemann zeta function lie on the critical line, or that $\sum_{n\leq x}
 \mu(n)$ is bounded by not much more than $\sqrt{x}$ for all $x\leq N$,
 we are verifying finite parts or finite consequences of standard conjectures
-that we have very good reasons to believe in -- and to believe out of reach.
+that we have very good reasons to believe in -- and good reasons
+to believe out of reach.
 %It is also the case that, in analytic number theory, we often prove bounds
 %that are stronger than what we need; that is as sensible a practice in building
 %a proof as in building a bridge. Thus
 
 The assistance of computers can lead us both to results that were previously
-out of reach and to a higher standard in certainty and rigor.
+unattainable and to a higher standard in certainty and rigor.
 It may be some time before the standard of rigor set by formal proofs
 becomes widespread, but we have come to the point where computers, correctly
 used, can quell misgivings rather than give rise to them. 
@@ -689,7 +701,7 @@ used, can quell misgivings rather than give rise to them.
 %\dots (human replaceability?) \dots
 
 {\bf Acknowledgements.} Many thanks are due to Guillaume Melquiond, Assia Mahboubi and Victor Magron for their feedback.
-%\bibliographystyle{alpha}
-%\bibliography{icmprint}
-%\end{document}
+% \bibliographystyle{alpha}
+% \bibliography{icmprint}
+% \end{document}
 
