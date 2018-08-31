@@ -383,8 +383,13 @@ have already mentioned.)
   Also to the point -- it is possible to combine (\ref{eq:ramar}) and
   (\ref{eq:smallmx}) to prove a result valid for all $x$, small and large:
   given any $y>1$ and any $0<x\leq y$,
-  \[|m(x)|\leq \sqrt{2/x} + 0.0144\cdot \frac{(y/t)^c}{\log y},\]
-  where $c=1/\log N= 1/\log 10^{14}$. Here, the larger $N$ is, the better.
+  %\[|m(x)|\leq \sqrt{2/x} + 0.0144\cdot \frac{(y/t)^c}{\log y},\]
+  %where $c=1/\log N= 1/\log 10^{14}$. Here, the larger $N$ is, the better.
+ \[|m(x)|\leq \sqrt{\frac{2}{x}} + 0.0144\cdot \frac{y^c}{\log y} \frac{1}{x^c},\]
+  where $c=1/\log N= 1/\log 10^{14}$.
+  The bound here is a sum of powers of $x$, something highly convenient for
+  several purposes. The larger $N$ is, the better the bound.
+  
   
   Of course, in this example, it was easy to give a fast algorithm. For
   some other sums I had to deal with, the obvious algorithm would have run in
@@ -466,8 +471,12 @@ general unsatisfactory to say ``By M.,\dots''\footnote{Here
   M. stands for Mammoth, or anything else that is closed-source and very large.} before a claim, as some
 papers do. Consequently, in the first version of my proof of ternary
 Goldbach, I used Sage only in an exploratory role, and did all coding in C.
-At the same time, Sage is open-source, peer-reviewed and highly modular.
-Because it is modular, we depend only on the correctness of the relatively
+%At the same time, Sage is open-source, peer-reviewed and highly modular.
+%Because it is modular, we depend only on the correctness of the relatively
+At the same time, Sage is open-source, peer-reviewed and highly modular
+(though some of its larger, older components may not themselves be highly
+modular or peer-reviewed in quite the same way).
+Because Sage is modular, we depend only on the correctness of the relatively
 small parts of it that we use in the proof; in my case, that amounts to
 Python, basic symbolic algebra and ARB.
 In part for this reason, and in part for the reasons outlined above
@@ -619,7 +628,8 @@ then we would need large parts of \cite{MR2061214}.
 start working on newer or new material. Of course, one can also proceed
 backwards, setting oneself a challenge (several of the major results in
 \cite{MR2061214} would do nicely) and working backwards from it,
-proving whatever basic results one needs.
+proving whatever basic results one needs, much as
+Gonthier et al. did with the Feit-Thompson Theorem \cite{Gonthieretal2013a}.
 
 This last strategy is, in a sense, similar to what I did in the end for
 ternary Goldbach; I had to ask about, learn about, and prove explicit
