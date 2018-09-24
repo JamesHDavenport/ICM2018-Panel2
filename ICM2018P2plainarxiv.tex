@@ -1,0 +1,169 @@
+\documentclass{article}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,latexsym,enumerate}
+\newtheorem{thm}{Theorem} % ex Pham
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{pro}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{que}[thm]{Question}
+\newtheorem{defi}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{exa}[thm]{Example}
+\newtheorem{example}[thm]{Example}
+\newtheorem*{prA}{Main Problem}
+\newtheorem*{prB}{Brauer height zero conjecture}
+\newtheorem*{prC}{Problem \ref{lowdim}}
+\newtheorem*{prD}{Koll\'ar-Larsen Problem}
+\newtheorem*{prE}{Katz-Larsen Conjecture}
+\newtheorem*{prF}{Taylor-Wiles Modularity Lifting Theorem (1995)}
+\newtheorem*{prG}{Clozel-Harris-Taylor Automorphy Lifting Theorem (2008)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\ind}{\operatorname{ind}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\sgn}{{\bf sgn}}
+\newcommand{\res}{\operatorname{res}}
+\newcommand{\soc}{\operatorname{soc}}
+\newcommand{\head}{\operatorname{head}}
+\newcommand{\og}{\operatorname{res}}
+\newcommand{\mo}{\operatorname{mod}}
+\newcommand{\modu}{\operatorname{mod-}}
+\newcommand{\cha}{\operatorname{char}}
+\newcommand{\St}{\operatorname{St}}
+\newcommand{\infl}{\operatorname{infl}}
+\newcommand{\cont}{\operatorname{cont}}
+\newcommand{\AFF}{\operatorname{A\Gamma L}}
+\newcommand{\PRO}{\operatorname{P\Gamma L}}
+\newcommand{\PROU}{\operatorname{P\Gamma U}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\ga}{\gamma}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\la}{\lambda}
+\newcommand{\lam}{\lambda}
+\newcommand{\La}{\Lambda}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ep}{\epsilon}
+\newcommand{\Si}{\Sigma}
+\newcommand{\si}{\sigma}
+\newcommand{\om}{\omega}
+\newcommand{\Om}{\Omega}
+\newcommand{\vare}{\varepsilon}
+\newcommand{\fee}{\varphi}
+\newcommand{\de}{\delta}
+\newcommand{\De}{\Delta}
+\newcommand{\ka}{\kappa}
+
+\newcommand{\Ze}{{\Bbb Z}}
+\newcommand{\Mull}{{\bf M}}
+
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Aut}{{\mathrm {Aut}}}
+\newcommand{\Out}{{\mathrm {Out}}}
+\newcommand{\Mult}{{\mathrm {Mult}}}
+\newcommand{\Inn}{{\mathrm {Inn}}}
+\newcommand{\Irr}{{\mathrm {Irr}}}
+\newcommand{\Irrp}{{\mathrm {Irr}}_{p'}}
+\newcommand{\IBR}{{\mathrm {IBr}}}
+\newcommand{\IBRP}{{\mathrm {IBr}}_p}
+\newcommand{\IBRL}{{\mathrm {IBr}}_{\ell}}
+\newcommand{\ord}{{\mathrm {ord}}}
+\def\id{\mathop{\mathrm {id}}\nolimits}
+\renewcommand{\Im}{{\mathrm {Im}}}
+\newcommand{\Ind}{{\mathrm {Ind}}}
+\newcommand{\diag}{{\mathrm {diag}}}
+%\newcommand{\soc}{{\mathrm {soc}}}
+%\newcommand{\End}{{\mathrm {End}}}
+\newcommand{\sol}{{\mathrm {sol}}}
+%\newcommand{\Hom}{{\mathrm {Hom}}}
+\newcommand{\Mor}{{\mathrm {Mor}}}
+\newcommand{\Mat}{{\mathrm {Mat}}}
+\def\rank{\mathop{\mathrm{ rank}}\nolimits}
+\newcommand{\Syl}{{\mathrm {Syl}}}
+\newcommand{\Tr}{{\mathrm {Tr}}}
+\newcommand{\tr}{{\mathrm {tr}}}
+\newcommand{\Gal}{{\it Gal}}
+\newcommand{\Spec}{{\mathrm {Spec}}}
+\newcommand{\ad}{{\mathrm {ad}}}
+\newcommand{\Sym}{{\mathrm {Sym}}}
+\newcommand{\Char}{{\mathrm {char}}}
+\newcommand{\lct}{{\mathrm {lct}}}
+\newcommand{\rad}{{\mathrm {rad}}}
+\newcommand{\abel}{{\mathrm {abel}}}
+\newcommand{\codim}{{\mathrm {codim}}}
+%\newcommand{\ind}{{\mathrm {ind}}}
+\newcommand{\Res}{{\mathrm {Res}}}
+\newcommand{\Ann}{{\mathrm {Ann}}}
+%\newcommand{\Ext}{{\mathrm {Ext}}}
+\newcommand{\CC}{{\mathbb C}}
+\newcommand{\CL}{{\mathcal C}}
+\newcommand{\SCL}{{\mathcal S}}
+\newcommand{\RR}{{\mathbb R}}
+\newcommand{\QQ}{{\mathbb Q}}
+\newcommand{\ZZ}{{\mathbb Z}}
+\newcommand{\NN}{{\mathbb N}}
+\newcommand{\EE}{{\mathbb E}}
+\newcommand{\PC}{({\mathcal P})}
+\newcommand{\NC}{{\mathcal N}}
+\newcommand{\GC}{{\mathcal G}}
+\newcommand{\TC}{{\mathcal T}}
+\newcommand{\HC}{{\mathcal H}}
+\newcommand{\EC}{{\mathcal E}}
+\newcommand{\GD}{G^{*}}
+\newcommand{\FF}{{\mathbb F}}
+\newcommand{\FQ}{\FF_{q}}
+\newcommand{\SSS}{{\sf S}}
+\newcommand{\AAA}{{\sf A}}
+\newcommand{\SC}{{S_{\CC}}}
+\newcommand{\SF}{{S_{\FF}}}
+\newcommand{\VC}{{V_{\CC}}}
+\newcommand{\WN}{{W_{\CC}}}
+\newcommand{\dvg}{{d_{V}(g)}}
+\newcommand{\dar}{{\downarrow}}
+\newcommand{\uar}{{\uparrow}}
+\newcommand{\age}{{\sf {age}}}
+\newcommand{\ml}{{\mathfrak{m}_{\ell}}}
+\newcommand{\mc}{{\mathfrak{m}_{\CC}}}
+\newcommand{\dl}{{\mathfrak{d}_p}}
+\newcommand{\tri}{\,{\trianglerighteq}\,}
+\newcommand{\Tred}{\textcolor{red}}
+\newcommand{\Tblue}{\textcolor{blue}}
+\bibliographystyle{plain}
+\begin{document}
+\title{Machine-Assisted Proofs\\ICM 2018 Panel}
+\author{James Davenport (moderator)\footnote{Department of Computer Science, University of Bath, Bath BA2 7AY, U.K., {\tt J.H.Davenport@bath.ac.uk}}{ } and Bjorn Poonen\footnote{MIT Department of Mathematics
+32 Vassar St., Bldg. 2-243
+Cambridge, MA 02139, USA, {\tt poonen@math.math.edu}}{ } and James Maynard\footnote{Professor of Number Theory, University of Oxford, UK}{ } and \\Harald Helfgott\footnote{Mathematisches Institut
+Bunsenstra{\ss}e 3--5
+D-37073 G\"ottingen, Germany;   IMJ-PRG, UMR 7586,
+  58 avenue de France, B\^{a}timent S. Germain, case 7012,
+  75013 Paris CEDEX 13, France, {\tt harald.helfgott@gmail.com}.}{ } and Pham Huu Tiep\footnote{Department of Mathematics,  Rutgers University, Piscataway, NJ 08854, USA %\\
+{\tt tiep@math.rutgers.edu}}{ } and Lu\'\i{}s Cruz-Filipe\footnote{Department of Mathematics and Computer Science, University of Southern Denmark, Campusvej 55,
+5230 Odense M,
+Denmark, {\tt lcfilipe@gmail.com}}}
+\date{7 August 2018}
+\maketitle\noindent
+This submission to arXiv is the report of a panel session at the 2018 International Congress of Mathematicians (Rio de Janeiro, August).  It is intended that, while \verb+v1+ is that report, this stays a living document containing the panelists', and others', reflections on the topic.
+\par
+This panel took place on Tuesday 7th August 2018. After the moderator had introduced the topic, the panelists presented their experiences and points of view, and then took questions from the floor.
+\section{Introduction (James Davenport)}
+\input Intro.tex
+\section{Bjorn Poonen}
+\input Poonen.tex
+\section{James Maynard}
+\input Maynard.tex
+\section{Harald Helfgott}
+\input Helfgott.tex
+%\section{Pham Huu Tiep}
+\input Tiep.tex
+\section{Lu\'\i{}s Cruz-Filipe}
+\input CruzFilipe.tex
+\section{Questions}
+\input QA.tex
+\bibliography{ICMPanel2}
+\end{document}

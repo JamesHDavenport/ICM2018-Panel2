@@ -1,0 +1,392 @@
+\begin{thebibliography}{10}
+
+\bibitem{AkbarpourPaulson2010}
+B.~Akbarpour and L.C. Paulson.
+\newblock {MetiTarski: An Automatic Theorem Prover for Real-Valued Special
+  Functions}.
+\newblock {\em J. Automated Reasoning}, 44:175--205, 2010.
+
+\bibitem{AppelHaken1976a}
+K.I. Appel and W.~Haken.
+\newblock {Every Planar Map is Four-Colorable}.
+\newblock {\em Bull. A.M.S.}, 82:711--712, 1976.
+
+\bibitem{AppelHaken1989}
+K.I. Appel and W.~Haken.
+\newblock {Every Planar Map is Four-Colorable (With the collaboration of J.
+  Koch)}.
+\newblock {\em Contemporary Mathematics}, 98, 1989.
+
+\bibitem{avigad2007formally}
+Jeremy Avigad, Kevin Donnelly, David Gray, and Paul Raff.
+\newblock A formally verified proof of the prime number theorem.
+\newblock {\em ACM Transactions on Computational Logic (TOCL)}, 9(1):2, 2007.
+
+\bibitem{opac-b1124307}
+Saugata Basu, Richard Pollack, and Marie-Fran\c{c}oise Roy.
+\newblock {\em Algorithms in real algebraic geometry}.
+\newblock Algorithms and computation in mathematics. Springer, Berlin,
+  Heidelberg, New York, 2006.
+
+\bibitem{Benderetal1994}
+Helmut Bender, George Glauberman, and Walter Carlip.
+\newblock {\em Local analysis for the odd order theorem}, volume 188 of {\em
+  LMS Lecture Notes}.
+\newblock Cambridge University Press, 1994.
+
+\bibitem{BirchSwinnertonDyer1963}
+B.J. Birch and H.P.F. Swinnerton-Dyer.
+\newblock {Notes on Elliptic Curves I}.
+\newblock {\em J. f\"ur reine und angew. Math.}, 212:7--23, 1963.
+
+\bibitem{Magma}
+W.~Bosma, J.~Cannon, and C.~Playoust.
+\newblock {The {\sc Magma} algebra system I: The user language}.
+\newblock {\em J.\ Symbolic Comput.}, 24:235--265, 1997.
+
+\bibitem{cipra1995number}
+Barry Cipra.
+\newblock {How number theory got the best of the Pentium chip}.
+\newblock {\em Science}, 267(5195):175, 1995.
+
+\bibitem{CodishEtAl2016}
+M.~Codish, L.~Cruz{-}Filipe, M.~Frank, and P.~Schneider{-}Kamp.
+\newblock Sorting nine inputs requires twenty-five comparisons.
+\newblock {\em J. Comput.\ Syst.\ Sci.}, 82(3):551--563, 2016.
+
+\bibitem{MR0403962}
+George~E. Collins.
+\newblock Quantifier elimination for real closed fields by cylindrical
+  algebraic decomposition.
+\newblock In {\em Automata theory and formal languages ({S}econd {GI} {C}onf.,
+  {K}aiserslautern, 1975)}, pages 134--183. Lecture Notes in Comput. Sci., Vol.
+  33. Springer, Berlin, 1975.
+
+\bibitem{Conwayetal1985}
+J.H. Conway, R.T. Curtis, S.P. Norton, R.A. Parker, and R.A. Wilson.
+\newblock {\em Atlas of finite simple groups}.
+\newblock Clarendon, Oxford, 1985.
+
+\bibitem{lcfEtAl2017c}
+L.~Cruz{-}Filipe, M.J.H. Heule, W.A. Hunt~Jr., M.~Kaufmann, and
+  P.~Schneider{-}Kamp.
+\newblock Efficient certified {RAT} verification.
+\newblock In L.~de~Moura, editor, {\em Proceedings of {CADE} 26}, volume 10395
+  of {\em LNCS}, pages 220--236. Springer, 2017.
+
+\bibitem{lcfEtAl2017a}
+L.~Cruz{-}Filipe, K.S. Larsen, and P.~Schneider{-}Kamp.
+\newblock Formally proving size optimality of sorting networks.
+\newblock {\em J. Automated Reasoning}, 59(4):425--454, 2017.
+
+\bibitem{lcfEtAl2017b}
+L.~Cruz{-}Filipe, J.~Marques{-}Silva, and P.~Schneider{-}Kamp.
+\newblock Efficient certified resolution proof checking.
+\newblock In A.~Legay and T.~Margaria, editors, {\em Proceedings of {TACAS
+  (I)}, held as part of {ETAPS}}, volume 10205 of {\em LNCS}, pages 118--135,
+  2017.
+
+\bibitem{crlibm}
+Catherine Daramy-Loirat, David Defour, Florent de~Dinechin, Matthieu Gallet,
+  Nicolas Gast, Christoph Lauter, and Jean-Michel Muller.
+\newblock {CR-LIBM A library of correctly rounded elementary functions in
+  double-precision}.
+\newblock Research report, LIP, December 2006.
+\newblock https://hal-ens-lyon.archives-ouvertes.fr/ensl-01529804.
+
+\bibitem{MR0217022}
+Harold Davenport.
+\newblock {\em Multiplicative number theory}.
+\newblock Markham Publishing Co., Chicago, Ill., 1967.
+\newblock Lectures given at the University of Michigan, Winter Term.
+
+\bibitem{Davenport2017z}
+J.H. Davenport.
+\newblock {Computer Algebra and Formal Proof}.
+\newblock \url{http://staff.bath.ac.uk/masjhd/Slides/JHD2017IsaacNewton.pdf},
+  2017.
+
+\bibitem{de1970mathematical}
+Nicolaas~Govert De~Bruijn.
+\newblock {The mathematical language AUTOMATH, its usage, and some of its
+  extensions}.
+\newblock In {\em Symposium on automatic demonstration}, pages 29--61.
+  Springer, 1970.
+
+\bibitem{FeitThompson1963}
+W.~Feit and J.G. Thompson.
+\newblock {Solvability of Groups of Odd Order}.
+\newblock {\em Pacific J. Math.}, 13:775--1029, 1963.
+
+\bibitem{FloydKnuth1973}
+R.W. Floyd and D.E. Knuth.
+\newblock {The Bose-Nelson sorting problem}.
+\newblock In J.N. Srivastava, editor, {\em A Survey of Combinatorial Theory},
+  pages 163--172. North-Holland, 1973.
+
+\bibitem{Gonthier2008}
+G.~Gonthier.
+\newblock {Formal Proof --- The Four-Color Theorem}.
+\newblock {\em Notices A.M.S.}, 55:1382--1393, 2008.
+
+\bibitem{GonthierThery2012a}
+G.~Gonthier and L.~Th\'ery.
+\newblock {Formal Proof --- The Feit--Thompson Theorem}.
+\newblock
+  \url{http://www.msr-inria.inria.fr/events-news/feit-thompson-proved-in-coq},
+  2012.
+
+\bibitem{Gonthieretal2013a}
+Georges Gonthier, Andrea Asperti, Jeremy Avigad, Yves Bertot, Cyril Cohen,
+  Fran{\c{c}}ois Garillot, St{\'e}phane Le~Roux, Assia Mahboubi, Russell
+  O'Connor, Sidi Ould~Biha, Ioana Pasca, Laurence Rideau, Alexey Solovyev,
+  Enrico Tassi, and Laurent Th{\'e}ry.
+\newblock A machine-checked proof of the odd order theorem.
+\newblock In Sandrine Blazy, Christine Paulin-Mohring, and David Pichardie,
+  editors, {\em Interactive Theorem Proving}, pages 163--179, Berlin,
+  Heidelberg, 2013. Springer Berlin Heidelberg.
+
+\bibitem{GAP}
+The~GAP group.
+\newblock {\emph{{\sf GAP} - groups, algorithms, and programming}, Version
+  4.4}.
+\newblock \url{http://www.gap-system.org}, 2004.
+
+\bibitem{Hales2005}
+T.C. Hales.
+\newblock {A proof of the Kepler conjecture}.
+\newblock {\em Annals of Mathematics}, 162:1065--1185, 2005.
+
+\bibitem{Hales2014a}
+T.C. Hales.
+\newblock {Flyspeck project completion}.
+\newblock {\em E-mail Sunday August 10th}, 2014.
+
+\bibitem{Halesetal2017a}
+Thomas Hales, Mark Adams, Gertrud Bauer, Tat~Dat Dang, John Harrison, Le~Truong
+  Hoang, Cezary Kaliszyk, Victor Magron, Sean McLaughlin, Tat~Thang Nguyen,
+  Quang~Truong Nguyen, Tobias Nipkow, Steven Obua, Joseph Pleso, Jason Rute,
+  Alexey Solovyev, Thi Hoai~An Ta, Nam~Trung Tran, Thi~Diep Trieu, Josef Urban,
+  Ky~Vu, and Roland Zumkeller.
+\newblock {A Formal Proof of the Kepler Conjecture}.
+\newblock {\em Forum of Mathematics, Pi}, 5:e2, 2017.
+
+\bibitem{harrison2005hol}
+John Harrison.
+\newblock {A HOL theory of Euclidean space}.
+\newblock In {\em International Conference on Theorem Proving in Higher Order
+  Logics}, pages 114--129. Springer, 2005.
+
+\bibitem{harrison2007formalizing}
+John Harrison.
+\newblock Formalizing basic complex analysis.
+\newblock {\em From Insight to Proof: Festschrift in Honour of Andrzej
+  Trybulec}, 10(23):151--165, 2007.
+
+\bibitem{harrison-pnt}
+John Harrison.
+\newblock Formalizing an analytic proof of the {P}rime {N}umber {T}heorem
+  (dedicated to {M}ike {G}ordon on the occasion of his 60th birthday).
+\newblock {\em Journal of Automated Reasoning}, 43:243--261, 2009.
+
+\bibitem{Helfbook}
+Harald~Andr\'es Helfgott.
+\newblock {The ternary Goldbach problem}.
+\newblock Preprint. Available as {\url{https://arxiv.org/abs/1501.05438}}.
+
+\bibitem{Helfgott2013a}
+Harald~Andr\'es Helfgott.
+\newblock {Major arcs for Goldbach's theorem}.
+\newblock \url{http://arxiv.org/abs/1305.2897}, 2013.
+
+\bibitem{HeuleKullmann2017}
+M.J.H. Heule and O.~Kullmann.
+\newblock The science of brute force.
+\newblock {\em Commun.\ {ACM}}, 60(8):70--79, 2017.
+
+\bibitem{Higham}
+Nicholas~J. Higham.
+\newblock {\em Accuracy and Stability of Numerical Algorithms}.
+\newblock Society for Industrial and Applied Mathematics, Philadelphia, PA,
+  USA, 2nd edition, 2002.
+
+\bibitem{QEPCAD}
+Hoon Hong and Christopher~W. Brown.
+\newblock {QEPCAD} {B} -- {Q}uantifier elimination by partial cylindrical
+  algebraic decomposition, May 2011.
+\newblock version 1.62.
+
+\bibitem{IMN}
+I.~M. Isaacs, G.~Malle, and G.~Navarro.
+\newblock {A reduction theorem for the McKay conjecture}.
+\newblock {\em Invent. Math.}, 170:33--101, 2007.
+
+\bibitem{IN}
+I.~M. Isaacs and G.~Navarro.
+\newblock {Sylow $2$-subgroups of rational solvable groups}.
+\newblock {\em Math. Z.}, 272:937--945, 2012.
+
+\bibitem{INOT}
+I.~M. Isaacs, G.~Navarro, J.~B. Olsson, and Pham~Huu Tiep.
+\newblock {Character restrictions and multiplicities in symmetric groups}.
+\newblock {\em J. Algebra}, 478:271--282, 2017.
+
+\bibitem{MR2061214}
+Henryk Iwaniec and Emmanuel Kowalski.
+\newblock {\em Analytic number theory}, volume~53 of {\em American Mathematical
+  Society Colloquium Publications}.
+\newblock American Mathematical Society, Providence, RI, 2004.
+
+\bibitem{Johansson2017arb}
+Fredrik Johansson.
+\newblock Arb: efficient arbitrary-precision midpoint-radius interval
+  arithmetic.
+\newblock {\em IEEE Transactions on Computers}, 66:1281--1292, 2017.
+
+\bibitem{Kropf1999}
+T.~Kropf.
+\newblock {\em Introduction to Formal Hardware Verification}.
+\newblock Springer, 1999.
+
+\bibitem{lagarias2011kepler}
+Jeffrey~C. Lagarias.
+\newblock {\em The Kepler Conjecture: The Hales-Ferguson Proof}.
+\newblock Springer Science \& Business Media, 2011.
+
+\bibitem{LBST}
+M.~W. Liebeck, E.~O'Brien, A.~Shalev, and Pham~Huu Tiep.
+\newblock {The Ore conjecture}.
+\newblock {\em J. Eur. Math. Soc.}, 12:939--1008, 2010.
+
+\bibitem{M}
+G.~Malle.
+\newblock {The proof of Ore's conjecture [after Ellers-Gordeev and
+  Liebeck-O'Brien-Shalev-Tiep]}.
+\newblock S\'eminaire Bourbaki, March 23, 2013.
+
+\bibitem{Maynard2013a}
+J.A. Maynard.
+\newblock {3-tuples have at most 7 prime factors infinitely often}.
+\newblock {\em Mathematical Proceedings of the Cambridge Philosophical
+  Society}, 155:443--457, 2013.
+
+\bibitem{Maynard2015a}
+J.A. Maynard.
+\newblock {Small gaps between primes}.
+\newblock {\em Annals of Mathematics}, 181:383--413, 2015.
+
+\bibitem{MR2378655}
+Hugh~L. Montgomery and Robert~C. Vaughan.
+\newblock {\em Multiplicative number theory. {I}. {C}lassical theory},
+  volume~97 of {\em Cambridge Studies in Advanced Mathematics}.
+\newblock Cambridge University Press, Cambridge, 2007.
+
+\bibitem{moore}
+Ramon~Edgar Moore.
+\newblock {\em Interval Analysis}.
+\newblock Prentice Hall, Englewood Cliffs, NJ, 1966.
+
+\bibitem{N}
+G.~Navarro.
+\newblock {The McKay conjecture and Galois automorphisms}.
+\newblock {\em Annals of Mathematics}, 160:1129--1140, 2004.
+
+\bibitem{NT}
+G.~Navarro and Pham~Huu Tiep.
+\newblock {A reduction theorem for the Alperin weight conjecture}.
+\newblock {\em Invent. Math.}, 184:529--565, 2011.
+
+\bibitem{newman1980simple}
+Donald~J Newman.
+\newblock Simple analytic proof of the prime number theorem.
+\newblock {\em The American Mathematical Monthly}, 87(9):693--696, 1980.
+
+\bibitem{Pentium}
+Thomas~R. Nicely.
+\newblock {Pentium FDIV flaw FAQ}.
+\newblock \url{http://www.trnicely.net/pentbug/pentbug.html}.
+\newblock Accessed: 2018-08-30.
+
+\bibitem{e2014empirical}
+Tom{\`a}s Oliveira~e Silva, Siegfried Herzog, and Silvio Pardi.
+\newblock {Empirical verification of the even Goldbach conjecture and
+  computation of prime gaps up to $4\cdot 10^{18}$.}
+\newblock {\em Math. Comput.}, 83(288):2033--2060, 2014.
+
+\bibitem{O}
+O.~Ore.
+\newblock {Some remarks on commutators}.
+\newblock {\em Proc. Amer. Math. Soc.}, 2:307--314, 1951.
+
+\bibitem{Peterfalvi2000}
+Thomas Peterfalvi.
+\newblock {\em Character theory for the odd order theorem}, volume 272 of {\em
+  LMS Lecture Notes}.
+\newblock Cambridge University Press, 2000.
+
+\bibitem{Platt}
+David Platt.
+\newblock {\em Computing degree $1$ L-functions rigorously}.
+\newblock PhD thesis, Bristol University, 2011.
+
+\bibitem{ThGr}
+{P}roject~{T}eam {M}ARELLE.
+\newblock {M}athematical {R}easoning and {S}oftware: activity report 2014.
+\newblock Technical report, {S}ophia {A}ntipolis - {M}\'editerran\'ee, 2014.
+\newblock {T}heme: {P}roofs and {V}erification.
+
+\bibitem{ramare2015explicit}
+Olivier Ramar{\'e}.
+\newblock Explicit estimates on several summatory functions involving the
+  Moebius function.
+\newblock {\em Mathematics of Computation}, 84(293):1359--1387, 2015.
+
+\bibitem{Sloane2003}
+N.J.A. Sloane.
+\newblock {The Online Encyclopedia of Integer Sequences}.
+\newblock {\em Notices A.M.S.}, 50:912--915, 2003.
+
+\bibitem{Sloane2007}
+N.J.A. Sloane.
+\newblock {The Online Encyclopedia of Integer Sequences}.
+\newblock \url{http://www.research.att.com/~njas/sequences}, 2007.
+
+\bibitem{sunaga2009}
+Teruo Sunaga.
+\newblock Theory of an interval algebra and its application to numerical
+  analysis {[Reprint of Res. Assoc. Appl. Geom. Mem. 2 (1958), 29--46]}.
+\newblock {\em Japan J. Indust. Appl. Math.}, 26(2-3):125--143, 2009.
+
+\bibitem{zbMATH03968684}
+E.C. {Titchmarsh}.
+\newblock {\em {The theory of the Riemann zeta-function. {\rm 2nd ed., rev. by
+  D. R. Heath-Brown.}}}
+\newblock {Oxford Science Publications. Oxford: Clarendon Press}, 1986.
+
+\bibitem{U}
+W.R. Unger.
+\newblock {Computing the character table of a finite group}.
+\newblock {\em J.\ Symbolic Comput.}, 41:847--862, 2006.
+
+\bibitem{warmus1956}
+Mieczyslaw Warmus.
+\newblock Calculus of approximations.
+\newblock {\em Bulletin de l’Academie Polonaise de Sciences}, 4(5):253--257,
+  1956.
+
+\bibitem{Wiedijk2006}
+Freek Wiedijk, editor.
+\newblock {\em The Seventeen Provers of the World}, volume 3600 of {\em LNCS}.
+  Springer, 2006.
+
+\bibitem{Wilkinson}
+James~Hardy Wilkinson.
+\newblock {\em Rounding errors in algebraic processes}.
+\newblock H.M.S.O London, 1963.
+
+\bibitem{Young1931}
+Rosalind~Cecily Young.
+\newblock The algebra of many-valued quantities.
+\newblock {\em Mathematische Annalen}, 104:260--290, 1931.
+
+\end{thebibliography}

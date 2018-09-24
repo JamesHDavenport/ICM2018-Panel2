@@ -1,0 +1,212 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{CHHJ{\etalchar{+}}17}
+
+\bibitem[AH76]{AppelHaken1976a}
+K.I. Appel and W.~Haken.
+\newblock {Every Planar Map is Four-Colorable}.
+\newblock {\em Bull. A.M.S.}, 82:711--712, 1976.
+
+\bibitem[AH89]{AppelHaken1989}
+K.I. Appel and W.~Haken.
+\newblock {Every Planar Map is Four-Colorable (With the collaboration of J.
+  Koch)}.
+\newblock {\em Contemporary Mathematics}, 98, 1989.
+
+\bibitem[AP10]{AkbarpourPaulson2010}
+B.~Akbarpour and L.C. Paulson.
+\newblock {MetiTarski: An Automatic Theorem Prover for Real-Valued Special
+  Functions}.
+\newblock {\em J. Automated Reasoning}, 44:175--205, 2010.
+
+\bibitem[BCP97]{Magma}
+W.~Bosma, J.~Cannon, and C.~Playoust.
+\newblock {The {\sc Magma} algebra system I: The user language}.
+\newblock {\em J.\ Symbolic Comput.}, 24:235--265, 1997.
+
+\bibitem[BGC94]{Benderetal1994}
+Helmut Bender, George Glauberman, and Walter Carlip.
+\newblock {\em Local analysis for the odd order theorem}, volume 188 of {\em
+  LMS Lecture Notes}.
+\newblock Cambridge University Press, 1994.
+
+\bibitem[CCFS16]{CodishEtAl2016}
+M.~Codish, L.~Cruz{-}Filipe, M.~Frank, and P.~Schneider{-}Kamp.
+\newblock Sorting nine inputs requires twenty-five comparisons.
+\newblock {\em J. Comput.\ Syst.\ Sci.}, 82(3):551--563, 2016.
+
+\bibitem[CCN{\etalchar{+}}85]{Conwayetal1985}
+J.H. Conway, R.T. Curtis, S.P. Norton, R.A. Parker, and R.A. Wilson.
+\newblock {\em Atlas of finite simple groups}.
+\newblock Clarendon, Oxford, 1985.
+
+\bibitem[CHHJ{\etalchar{+}}17]{lcfEtAl2017c}
+L.~Cruz{-}Filipe, M.J.H. Heule, W.A. Hunt~Jr., M.~Kaufmann, and
+  P.~Schneider{-}Kamp.
+\newblock Efficient certified {RAT} verification.
+\newblock In L.~de~Moura, editor, {\em Proceedings of {CADE} 26}, volume 10395
+  of {\em LNCS}, pages 220--236. Springer, 2017.
+
+\bibitem[CLS17]{lcfEtAl2017a}
+L.~Cruz{-}Filipe, K.S. Larsen, and P.~Schneider{-}Kamp.
+\newblock Formally proving size optimality of sorting networks.
+\newblock {\em J. Automated Reasoning}, 59(4):425--454, 2017.
+
+\bibitem[CMS17]{lcfEtAl2017b}
+L.~Cruz{-}Filipe, J.~Marques{-}Silva, and P.~Schneider{-}Kamp.
+\newblock Efficient certified resolution proof checking.
+\newblock In A.~Legay and T.~Margaria, editors, {\em Proceedings of {TACAS
+  (I)}, held as part of {ETAPS}}, volume 10205 of {\em LNCS}, pages 118--135,
+  2017.
+
+\bibitem[Dav17]{Davenport2017z}
+J.H. Davenport.
+\newblock {Computer Algebra and Formal Proof}.
+\newblock \url{http://staff.bath.ac.uk/masjhd/Slides/JHD2017IsaacNewton.pdf},
+  2017.
+
+\bibitem[FK73]{FloydKnuth1973}
+R.W. Floyd and D.E. Knuth.
+\newblock {The Bose-Nelson sorting problem}.
+\newblock In J.N. Srivastava, editor, {\em A Survey of Combinatorial Theory},
+  pages 163--172. North-Holland, 1973.
+
+\bibitem[FT63]{FeitThompson1963}
+W.~Feit and J.G. Thompson.
+\newblock {Solvability of Groups of Odd Order}.
+\newblock {\em Pacific J. Math.}, 13:775--1029, 1963.
+
+\bibitem[GAA{\etalchar{+}}13]{Gonthieretal2013a}
+Georges Gonthier, Andrea Asperti, Jeremy Avigad, Yves Bertot, Cyril Cohen,
+  Fran{\c{c}}ois Garillot, St{\'e}phane Le~Roux, Assia Mahboubi, Russell
+  O'Connor, Sidi Ould~Biha, Ioana Pasca, Laurence Rideau, Alexey Solovyev,
+  Enrico Tassi, and Laurent Th{\'e}ry.
+\newblock A machine-checked proof of the odd order theorem.
+\newblock In Sandrine Blazy, Christine Paulin-Mohring, and David Pichardie,
+  editors, {\em Interactive Theorem Proving}, pages 163--179, Berlin,
+  Heidelberg, 2013. Springer Berlin Heidelberg.
+
+\bibitem[Gon08]{Gonthier2008}
+G.~Gonthier.
+\newblock {Formal Proof --- The Four-Color Theorem}.
+\newblock {\em Notices A.M.S.}, 55:1382--1393, 2008.
+
+\bibitem[gro04]{GAP}
+The~GAP group.
+\newblock {\emph{{\sf GAP} - groups, algorithms, and programming}, Version
+  4.4}.
+\newblock \url{http://www.gap-system.org}, 2004.
+
+\bibitem[GT12]{GonthierThery2012a}
+G.~Gonthier and L.~Th\'ery.
+\newblock {Formal Proof --- The Feit--Thompson Theorem}.
+\newblock
+  \url{http://www.msr-inria.inria.fr/events-news/feit-thompson-proved-in-coq},
+  2012.
+
+\bibitem[HAB{\etalchar{+}}17]{Halesetal2017a}
+Thomas Hales, Mark Adams, Gertrud Bauer, Tat~Dat Dang, John Harrison, Le~Truong
+  Hoang, Cezary Kaliszyk, Victor Magron, Sean McLaughlin, Tat~Thang Nguyen,
+  Quang~Truong Nguyen, Tobias Nipkow, Steven Obua, Joseph Pleso, Jason Rute,
+  Alexey Solovyev, Thi Hoai~An Ta, Nam~Trung Tran, Thi~Diep Trieu, Josef Urban,
+  Ky~Vu, and Roland Zumkeller.
+\newblock {A Formal Proof of the Kepler Conjecture}.
+\newblock {\em Forum of Mathematics, Pi}, 5:e2, 2017.
+
+\bibitem[Hal05]{Hales2005}
+T.C. Hales.
+\newblock {A proof of the Kepler conjecture}.
+\newblock {\em Annals of Mathematics}, 162:1065--1185, 2005.
+
+\bibitem[Hal14]{Hales2014a}
+T.C. Hales.
+\newblock {Flyspeck project completion}.
+\newblock {\em E-mail Sunday August 10th}, 2014.
+
+\bibitem[Hel13]{Helfgott2013a}
+H.A. Helfgott.
+\newblock {Major arcs for Goldbach's theorem}.
+\newblock \url{http://arxiv.org/abs/1305.2897}, 2013.
+
+\bibitem[HK17]{HeuleKullmann2017}
+M.J.H. Heule and O.~Kullmann.
+\newblock The science of brute force.
+\newblock {\em Commun.\ {ACM}}, 60(8):70--79, 2017.
+
+\bibitem[IMN07]{IMN}
+I.~M. Isaacs, G.~Malle, and G.~Navarro.
+\newblock {A reduction theorem for the McKay conjecture}.
+\newblock {\em Invent. Math.}, 170:33--101, 2007.
+
+\bibitem[IN12]{IN}
+I.~M. Isaacs and G.~Navarro.
+\newblock {Sylow $2$-subgroups of rational solvable groups}.
+\newblock {\em Math. Z.}, 272:937--945, 2012.
+
+\bibitem[INOT17]{INOT}
+I.~M. Isaacs, G.~Navarro, J.~B. Olsson, and Pham~Huu Tiep.
+\newblock {Character restrictions and multiplicities in symmetric groups}.
+\newblock {\em J. Algebra}, 478:271--282, 2017.
+
+\bibitem[Kro99]{Kropf1999}
+T.~Kropf.
+\newblock {\em Introduction to Formal Hardware Verification}.
+\newblock Springer, 1999.
+
+\bibitem[LOST10]{LBST}
+M.~W. Liebeck, E.~O'Brien, A.~Shalev, and Pham~Huu Tiep.
+\newblock {The Ore conjecture}.
+\newblock {\em J. Eur. Math. Soc.}, 12:939--1008, 2010.
+
+\bibitem[Mal]{M}
+G.~Malle.
+\newblock {The proof of Ore's conjecture [after Ellers-Gordeev and
+  Liebeck-O'Brien-Shalev-Tiep]}.
+\newblock S\'eminaire Bourbaki, March 23, 2013.
+
+\bibitem[May15]{Maynard2015a}
+J.A. Maynard.
+\newblock {Small gaps between primes}.
+\newblock {\em Annals of Mathematics}, 181:383--413, 2015.
+
+\bibitem[Nav04]{N}
+G.~Navarro.
+\newblock {The McKay conjecture and Galois automorphisms}.
+\newblock {\em Annals of Mathematics}, 160:1129--1140, 2004.
+
+\bibitem[NT11]{NT}
+G.~Navarro and Pham~Huu Tiep.
+\newblock {A reduction theorem for the Alperin weight conjecture}.
+\newblock {\em Invent. Math.}, 184:529--565, 2011.
+
+\bibitem[Ore51]{O}
+O.~Ore.
+\newblock {Some remarks on commutators}.
+\newblock {\em Proc. Amer. Math. Soc.}, 2:307--314, 1951.
+
+\bibitem[Pet00]{Peterfalvi2000}
+Thomas Peterfalvi.
+\newblock {\em Character theory for the odd order theorem}, volume 272 of {\em
+  LMS Lecture Notes}.
+\newblock Cambridge University Press, 2000.
+
+\bibitem[Slo03]{Sloane2003}
+N.J.A. Sloane.
+\newblock {The Online Encyclopedia of Integer Sequences}.
+\newblock {\em Notices A.M.S.}, 50:912--915, 2003.
+
+\bibitem[Slo07]{Sloane2007}
+N.J.A. Sloane.
+\newblock {The Online Encyclopedia of Integer Sequences}.
+\newblock \url{http://www.research.att.com/~njas/sequences}, 2007.
+
+\bibitem[Ung06]{U}
+W.R. Unger.
+\newblock {Computing the character table of a finite group}.
+\newblock {\em J.\ Symbolic Comput.}, 41:847--862, 2006.
+
+\bibitem[Wie06]{Wiedijk2006}
+Freek Wiedijk, editor.
+\newblock {\em The Seventeen Provers of the World}, volume 3600 of {\em LNCS}.
+  Springer, 2006.
+
+\end{thebibliography}

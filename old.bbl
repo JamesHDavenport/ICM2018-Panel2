@@ -1,0 +1,60 @@
+\begin{thebibliography}{10}
+
+\bibitem{AppelHaken1976a}
+K.I. Appel and W.~Haken.
+\newblock {Every Planar Map is Four-Colorable}.
+\newblock {\em Bull. A.M.S.}, 82:711--712, 1976.
+
+\bibitem{AppelHaken1989}
+K.I. Appel and W.~Haken.
+\newblock {\em {Every Planar Map is Four-Colorable (With the collaboration of
+  J. Koch)}}, volume~98 of {\em Contemporary Mathematics}.
+\newblock A.M.S., 1989.
+
+\bibitem{FeitThompson1963}
+W.~Feit and J.G. Thompson.
+\newblock {Solvability of Groups of Odd Order}.
+\newblock {\em Pacific J. Math.}, 13:775--1029, 1963.
+
+\bibitem{Gonthier2008}
+G.~Gonthier.
+\newblock {Formal Proof --- The Four-Color Theorem}.
+\newblock {\em Notices A.M.S.}, 55:1382--1393, 2008.
+
+\bibitem{GonthierThery2012a}
+G.~Gonthier and L.~Th\'ery.
+\newblock {Formal Proof --- The Feit--Thompson Theorem}.
+\newblock
+  \url{http://www.msr-inria.inria.fr/events-news/feit-thompson-proved-in-coq},
+  2012.
+
+\bibitem{Hales2005}
+T.C. Hales.
+\newblock {A proof of the Kepler conjecture}.
+\newblock {\em Ann. Math.}, 162:1065--1185, 2005.
+
+\bibitem{Hales2014a}
+T.C. Hales.
+\newblock {Flyspeck project completion}.
+\newblock {\em E-mail Sunday August 10th}, 2014.
+
+\bibitem{Halesetal2017a}
+Thomas Hales, Mark Adams, Gertrud Bauer, Tat~Dat Dang, John Harrison, Le~Truong
+  Hoang, Cezary Kaliszyk, Victor Magron, Sean McLaughlin, Tat Thang Nguyen,
+  Quang~Truong Nguyen, Tobias Nipkow, Steven Obua, Joseph Pleso, Jason Rute,
+  Alexey Solovyev, Thi Hoai~An Ta, Nam~Trung Tran, Thi~Diep Trieu, Josef Urban,
+  Ky~Vu, and Roland Zumkeller.
+\newblock {A Formal Proof of the Kepler Conjecture}.
+\newblock {\em Forum of Mathematics, Pi}, 5:e2, 2017.
+
+\bibitem{Helfgott2013a}
+H.A. Helfgott.
+\newblock {Major arcs for Goldbach's theorem}.
+\newblock \url{http://arxiv.org/abs/1305.2897}, 2013.
+
+\bibitem{Maynard2016a}
+J.A. Maynard.
+\newblock {Large gaps between primes}.
+\newblock {\em Annals of Mathematics}, 183:915--933, 2016.
+
+\end{thebibliography}
